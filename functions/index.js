@@ -17,7 +17,12 @@ app.get('/login', (req, res) => {
 
 app.get('/', (req, res) => {
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-    res.render('index', { layout: false });
+    res.render('index');
+});
+
+app.get('/utilizador', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    res.render('utilizador/index');
 });
 
 exports.app = functions.https.onRequest(app);
