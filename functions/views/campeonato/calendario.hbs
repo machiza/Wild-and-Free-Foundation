@@ -1,0 +1,162 @@
+<section class="vbox">
+  <section class="scrollable padder">
+    <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+      <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+      <li class="active">Workset</li>
+    </ul>
+
+    <section class="scrollable wrapper ">
+        <div class="row">
+          {{#each jornadas }}
+            <div class="col-lg-4">
+              
+                <section class="panel panel-default">
+                  
+                  <header class="panel-heading bg-danger lt no-border" style="text-align: center">
+                    {{ numero }}
+                  </header>
+                  <div class="row partida">
+                    {{#each jogos}}
+                    {{#if casa.id}}
+                    <div class="row">
+                      <div class="col-md-4 col-xs-4 equipe-casa">
+                        <span class="hidden-xs-down">
+                          {{casa.nome}} <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                        </span>
+                      </div>
+                      <div class="col-md-4 col-xs-4 placar">
+                        {{#if feito}}
+                          <input type="tel" class="gols" disabled="disabled" value="{{casa.golos}}" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
+                          <input type="tel" class="gols" disabled="disabled" value="{{fora.golos}}" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
+                        {{else}}
+                          <input type="tel" class="gols" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
+                          <input type="tel" class="gols" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
+                        {{/if}}
+                        <div class="x-placar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <button id="{{jornada}}{{@index}}botao" class="btn btn-xs btn-info feito" onclick="myFeito('{{jornada}}{{@index}}', '{{casa.id}}', '{{fora.id}}', '{{jornada}}', {{@index}})">
+                          √
+                        </button>
+                      </div>
+                      <div class="col-md-4 col-xs-4 equipe-fora">
+                        <span class="hidden-xs-down">
+                          <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                          {{fora.nome}}
+                        </span>
+                      </div>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                  </div>
+                </section>
+                
+            </div>
+            {{/each}}
+        </div>
+    </section>
+      
+      
+  </section>
+</section>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/handlebars-v4.0.11.js"></script>
+<script>
+  $('button').hide();
+
+  function myFunction(idButton) {
+    var botao = '#'+idButton;
+    console.log(botao);
+    $(botao).show();
+  }
+
+  function myFeito(idButton, casa, fora, jorn, index) {
+    var botao = '#'+idButton+'botao';
+    var casaId = '#'+idButton+'casa';
+    var foraId = '#'+idButton+'fora';
+    var jornada = jorn+'°'+' Jornada';
+
+    {{!-- casa --}}
+    var casaPontos = 0;
+    var casaVitorias = 0;
+    var casaEmpates = 0;
+    var casaDerrotas = 0;
+    var casaGol = $(casaId).val();
+
+    {{!-- fora --}}
+    var foraPontos = 0;
+    var foraVitorias = 0;
+    var foraEmpates = 0;
+    var foraDerrotas = 0;
+    var foraGol = $(foraId).val();
+
+    if (casaGol > foraGol) {
+      casaPontos = 3; casaVitorias = 1;
+      foraDerrotas = 1;
+    } else if(casaGol < foraGol) {
+      foraPontos = 3; foraVitorias = 1;
+      casaDerrotas = 1;
+    } else {
+      casaPontos = 1; casaEmpates = 1;
+      foraPontos = 1; foraEmpates = 1;
+    }
+
+    var jogo = {
+      placar: casaGol+' x '+foraGol
+    }
+
+    $(botao).hide();
+
+    $.ajax({
+      type: 'POST',
+      url: '/campeonato/calendario',
+      data: { 
+        casa, casaPontos, casaVitorias, casaEmpates, casaDerrotas, casaGol,
+        fora, foraPontos, foraVitorias, foraEmpates, foraDerrotas, foraGol, jornada, index
+        },
+      success: function(data) {
+        alert(data);
+      }
+    });
+
+    $(casaId).prop('disabled', true);
+    $(foraId).prop('disabled', true);
+  }
+
+</script>
+<div class="modal fade" id="modal-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6 b-r">
+              <h3 class="m-t-none m-b">Sign in</h3>
+              <p>Sign in to meet your friends.</p>
+              <form role="form">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="checkbox m-t-lg">
+                  <button type="submit" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs"><strong>Log in</strong></button>
+                  <label>
+                    <input type="checkbox"> Remember me
+                  </label>
+                </div>                
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <h4>Not a member?</h4>
+              <p>You can create an account <a href="#" class="text-info">here</a></p>
+              <p>OR</p>
+              <a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a>
+              <a href="#" class="btn btn-twitter btn-block m-b-sm"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
+              <a href="#" class="btn btn-gplus btn-block"><i class="fa fa-google-plus pull-left"></i>Sign in with Google+</a>
+            </div>
+          </div>          
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->

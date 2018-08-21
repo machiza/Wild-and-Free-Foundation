@@ -1,0 +1,191 @@
+<section class="hbox stretch">
+  <!-- .aside -->
+    <aside>
+      <section class="vbox">
+        <header class="header bg-white b-b b-light">
+          <a href="#aside" data-toggle="class:show" class="btn btn-sm btn-default pull-right">Create</a>
+          <p>Plantel</p>
+        </header>
+        <section class="scrollable wrapper">
+          <section class="panel panel-default">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-none" >
+              <thead>
+                <tr>
+                  <th width="60%">Guardaredes</th>
+                  <th width="5%" style="text-align: center">Numero</th>
+                  <th width="5%" style="text-align: center">Posicao</th>
+                  <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center; color: red"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-dribbble"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-user-md"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+              {{#if guardaredes }}
+                {{#each guardaredes }}
+                <tr>
+                  <td>
+                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                  </td>
+                  <td style="text-align: center">{{numero}}</td>
+                  <td style="text-align: center">{{posicao}}</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center"><i class="fa fa-circle"></i></td>
+                </tr>
+                {{/each}}
+              {{/if}}
+              </tbody>
+            </table>
+
+            <table class="table table-striped m-b-none" >
+              <thead>
+                <tr>
+                  <th width="60%">Defesas</th>
+                  <th width="5%" style="text-align: center">Numero</th>
+                  <th width="5%" style="text-align: center">Posicao</th>
+                  <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center; color: red"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-dribbble"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-user-md"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+              {{#if defesas}}
+                {{#each defesas }}
+                <tr>
+                  <td>
+                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                  </td>
+                  <td style="text-align: center">{{ numero }}</td>
+                  <td style="text-align: center">{{ posicao }}</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center"><i class="fa fa-circle"></i></td>
+                </tr>
+                {{/each}}
+              {{/if}}
+              </tbody>
+            </table>
+            <table class="table table-striped m-b-none" >
+              <thead>
+                <tr>
+                  <th width="60%">Medios</th>
+                  <th width="5%" style="text-align: center">Numero</th>
+                  <th width="5%" style="text-align: center">Posicao</th>
+                  <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center; color: red"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-dribbble"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-user-md"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+              {{#if medios }}
+                {{#each medios }}
+                <tr>
+                  <td>
+                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                  </td>
+                  <td style="text-align: center">{{ numero }}</td>
+                  <td style="text-align: center">{{ posicao }}</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center"><i class="fa fa-circle"></i></td>
+                </tr>
+                {{/each}}
+              {{/if}}
+              </tbody>
+            </table>
+            <table class="table table-striped m-b-none" >
+              <thead>
+                <tr>
+                  <th width="60%">Avancados</th>
+                  <th width="5%" style="text-align: center">Numero</th>
+                  <th width="5%" style="text-align: center">Posicao</th>
+                  <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center; color: red"><i class="fa fa-square"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-dribbble"></i></th>
+                  <th width="5%" style="text-align: center"><i class="fa fa-user-md"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+              {{#if avancados }}
+                {{#each avancados }}
+                <tr>
+                  <td>
+                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                  </td>
+                  <td style="text-align: center">{{ numero }}</td>
+                  <td style="text-align: center">{{ posicao }}</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center">0</td>
+                  <td style="text-align: center"><i class="fa fa-circle"></i></td>
+                </tr>
+                {{/each}}
+              {{/if}}
+              </tbody>
+            </table>
+          </div>
+          </section>
+        </section>
+      </section>
+    </aside>
+    <!-- /.aside -->
+    <!-- .aside -->
+    <aside class="aside-lg bg-white b-l hide" id="aside">
+      <div class="wrapper">
+        <h4 class="m-t-none">Jogador</h4>
+        <form>
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" id="nome" placeholder="Nome do Jogador" class="input-sm form-control">
+          </div>
+          <div class="form-group">
+            <label>Numero</label>
+            <div id="MySpinner" class="spinner input-group" data-min="1" data-max="100">
+              <input type="text" class="form-control spinner-input" value="1" maxlength="3">
+              <div class="btn-group btn-group-vertical input-group-btn">
+                <button type="button" class="btn btn-default spinner-up">
+                  <i class="fa fa-chevron-up text-muted"></i>
+                </button>
+                <button type="button" class="btn btn-default spinner-down">
+                  <i class="fa fa-chevron-down text-muted"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Posicao</label>
+              <select id="posicao" class="form-control m-b">
+                <option value="GR">Guardaredes</option>
+                <option value="DE">Defesa Esquerdo</option>
+                <option value="DC">Defesa Central</option>
+                <option value="DD">Defesa Direito</option>
+                <option value="MDF">Medio Defensivo</option>
+                <option value="MC">Medio Centro</option>
+                <option value="MO">Medio Ofensivo</option>
+                <option value="MD">Medio Direito</option>
+                <option value="ME">Medio Esquerdo</option>
+                <option value="AC">Avancado Centro</option>
+                <option value="AE">Avancado Esquerdo</option>
+                <option value="AD">Avancado Direito</option>
+                <option value="SA">Segundo Avancado</option>
+              </select>
+          </div>
+          <input type="hidden" id="idEquipe" value="{{ id }}">
+          <div class="m-t-lg"><button id="btnAdicionar" class="btn btn-sm btn-default">Adicionar</button></div>
+        </form>
+      </div>
+    </aside>
+    <!-- /.aside -->
+</section>
+
+<script src="../js/jquery.min.js"></script>
+{{!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> --}}
+<script src="../js/app/equipe/plantel.js"></script>

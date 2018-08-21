@@ -5,3 +5,2369 @@
     width: 50%;
     margin-bottom: 0px;
 }
+
+#change-profile .preview {
+
+}
+
+.priview-wraper{
+    width: 100px;
+    height:100px;
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    overflow: hidden;
+    border-radius: 100%;
+
+
+}
+
+.priview-wraper-origal{
+    width: 100px;
+    height:100px;
+    overflow: hidden;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+/* html {
+    overflow-y: scroll;    
+	overflow-x: hidden;
+}
+
+body{
+	font-family: 'Lato';
+	font-size: 14px;
+	
+}
+
+
+.conteudo{
+	min-height: 450px;
+}
+
+a{
+	
+	color: #337ab7;
+}
+
+.container{
+	max-width: 1240px;
+}
+
+footer{
+	background: #f8f8f8;
+	padding: 20px;
+	border-top: 1px solid #e0e0e0;
+    
+}
+
+footer a{
+	
+	color: #c0c0c0;
+}
+
+footer p{
+	margin-bottom: 5px;
+	
+} */
+
+/**** IMG ***/
+
+.img-circulo img{
+	border-radius: 50%;
+}
+
+.img-circulo2{
+	border-radius: 50%;
+}
+
+.img-icone  img{
+	width: 25px;
+    height: 25px;    
+}
+
+.img-20 img{
+	width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+}
+
+.xdsoft_autocomplete_dropdown .img-icone, .xdsoft_autocomplete_dropdown .img-icone-circulo{
+	width: 25px;
+    height: 25px;
+}
+
+.img-icone-circulo, .img-circulo-icone{
+	border-radius: 50%;
+	width: 25px;
+    height: 25px;
+}
+
+/**** TABLE ***/
+
+table{
+		
+}
+
+
+table th{
+	border-top: none !important; 
+}
+
+table .label{
+	font-weight: normal;
+	border-radius: .25em;
+	font-size: 8pt;
+}
+
+table .label-warning{
+	background-color: white;
+    color: #f0ad4e;
+    border: 1px solid #f0ad4e;
+}
+
+table .label-info{
+	background-color: white;
+    color: #5bc0de;
+    border: 1px solid #5bc0de;
+}
+
+table .label-danger{
+	background-color: white;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+table .label-default{
+	background-color: white;
+    color: #808080;
+    border: 1px solid #808080;
+}
+
+table .label-success{
+	   background-color: white;
+    color: #5cb85c;
+    border: 1px solid #5cb85c;
+}
+
+
+/*** AJUDA ***/
+
+.ajuda-2, .ajuda-1{
+	display: none;
+}
+
+.card-ajuda ul{
+	padding-left: 20px;
+}
+
+
+.card-ajuda{
+	background-color: #f8f8f8;
+	border: none;
+	padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/**** WELCOME ***/
+
+
+.welcome-container a.btn-lg, #ajuda-tipo a.btn-lg, .ajuda-1 a.btn-lg{
+    padding: .75rem 1.25rem !important;
+    font-size: 1.25rem !important;
+    line-height: 1.333333 !important;
+    border-radius: .3rem !important;
+}
+
+.welcome-perfil a{
+	color: white;
+}
+
+.welcome-depoimento-texto{
+	font-size: 18pt;
+    color: #c0c0c0;
+    font-weight: lighter;
+}
+
+.welcome-depoimento{
+    margin-bottom: 40px;
+    margin-top: 30px;	
+}
+	
+.welcome-banner .numero{
+	font-size: 18pt;
+}
+
+.welcome-banner .texto{
+	text-transform: uppercase;
+	font-size: 8pt;
+}
+
+.welcome-banner,  .welcome-container h3{
+	color: white;
+	font-weight: bold;
+} 
+
+.welcome-banner{
+	margin-top: 60px;
+    padding-bottom: 20px;	
+}
+
+.welcome-container{
+	margin-bottom: 40px;
+	padding-left: 40px;
+	margin-top: -40px;
+	padding-top: 80px;
+	margin-left: -30px;
+    margin-right: -30px;
+    padding-right: 40px;
+}
+
+.welcome-estatisticas{
+	margin-bottom: 30px;
+}
+
+/**** TITULOS ****/
+
+h3, h4{
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	font-weight: 200;
+	color: #a8c1cf;	
+}
+
+h4{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	font-weight: lighter;
+	font-size: 15pt;
+}
+
+
+/**** LIGA ****/
+
+.liga-background{
+	background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -39px;
+    height: 300px;
+    
+    
+}
+
+.liga-escudo-preview{
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 5px;
+	width: 150px;
+	height: 150px;
+	border: 4px solid white;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin: auto;
+}
+
+.liga-alterar-background{
+	border: 2px solid #dce5ea;
+    background: rgba(0, 0 , 0, 0.3);
+    color: #dce5ea;
+    width: auto;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 10px;
+    text-decoration: none;
+}
+
+.liga-alterar-background:hover, .liga-alterar-background:active, .liga-alterar-background:focus{
+	color: white;
+	text-decoration: none;
+}
+
+.liga-background-mobile{
+}
+
+
+.liga-header{
+	 margin-top: -180px;
+	 margin-bottom: 30px;
+}
+
+.liga-header H3, .liga-header .tabela-user a{
+	text-shadow: 1px 1px 40px rgba(0,0,0,0.7);
+    color: white;    
+    font-weight: bold;	
+}
+
+.liga-header h3{
+	font-size: 26pt;
+	margin-bottom: 0px;
+}
+
+.liga-header .tabela-user a{
+	font-size: 14pt;
+	padding: 0;	
+}
+
+
+.liga-nome{
+	padding-top: 80px;
+	padding-left: 0;
+}
+
+.liga-nome .tabela-user{
+	padding: 0;
+}
+
+.liga-escudo{
+	padding-top: 40px;
+}
+
+
+.liga-campeao-user img, .liga-campeao-equipe img{
+	width: 65px;
+	height: 65px;
+}
+
+.liga-campeao-campeonato a{
+	color: #c0c0c0;s
+}
+
+.nav-liga{
+	border: 1px solid #efefef;
+	margin-bottom: 40px;
+	background-color: #f8fafb;
+}
+
+
+
+.nav-liga .nav-item.open .nav-link, 
+.nav-liga .nav-item.open .nav-link:focus, 
+.nav-liga .nav-item.open .nav-link:hover 
+{
+	background-color: #f8f8f8 !important;
+}
+
+.nav-liga .nav-item:first-child{
+	padding-left: 0;
+}
+
+.nav-liga .label-default{
+	background-color: #c0c0c0;
+}
+
+.nav-liga .nav-link{
+	    color: #92b3b8 !important;
+	    font-size: 12pt;
+	    padding-bottom: 15px;
+	    padding-top: 15px;
+	    padding-left: 30px;
+}
+
+.nav-liga .nav-item:first-child .nav-link{
+	padding-left: 30px;
+}
+
+.nav-liga .active{
+	background-color: #f8fafb !important;
+	border-bottom: 3px solid #92b3b8;
+    font-weight: bold;
+    color: #92b3b8 !important;
+    border-radius: 0;
+    
+}
+
+
+
+.ligas-tipo{
+	padding: 20px;
+    background: #f8f8f8;
+    color: #c0c0c0;
+    margin-top: 40px;
+}
+
+.card-liga{
+	
+	max-width: 180px;
+	max-height: 168px;
+	position: relative;
+    display: block;
+    border: none;
+    margin-bottom: 40px;
+    
+}
+
+.card-liga .card-text{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+
+.card-liga .card-block
+{
+	padding: 0;
+}
+
+.liga-post{
+	border-color: #f8f8f8;
+	padding: 0;
+	margin-bottom: 40px;
+}
+
+.liga-comentarios-main{
+	background: #f8f8f8;
+    padding-bottom: 20px;		
+}
+
+.liga-comentarios{
+	background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.liga-comentario{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.liga-comentario-data{
+	color: #c0c0c0;
+    font-size: 8pt;
+    font-weight: lighter;
+    display: inline-block;
+}
+
+.liga-post-conteudo{
+	padding: 20px;
+	overflow: hidden;
+}
+
+.liga-post-titulo{
+	padding: 20px;
+	padding-bottom: 0;
+}
+
+.liga-comentario-user{
+	max-width: 40px;
+}
+
+.liga-sobre-titulo{
+	background: #f5f8fa !important;
+    padding: 15px;
+    margin: 0;
+    border-bottom: 1px solid #d7e1e7;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    color: #768389 !important;
+}
+
+.liga-sobre{
+	padding: 0;	
+	border-color: #f8f8f8;
+	
+}
+
+.liga-sobre .card-text{
+	padding: 20px;
+}
+
+.liga-sobre h3{
+	margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    font-weight: bold;
+}
+
+
+.fileinput-upload-button{
+	display: inline-block !important;
+	margin-right: 5px;
+}
+
+.file-preview-frame{
+	max-height: 50px;
+}
+
+.file-actions, .file-footer-caption{
+	display: none;
+}
+
+.publicar-editar{
+	padding: 0;
+	margin-top: 20px;
+}
+
+
+/***** JOGO ****/
+
+.card-jogo{
+	
+	max-width: 180px;
+	position: relative;
+    display: block;
+    border: none;
+    margin-bottom: 40px;
+}
+
+.card-jogo .card-text{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+
+.card-jogo .card-block
+{
+	padding: 0;
+}
+
+
+.card-estatistica .card{
+	border: none;
+}
+
+.card-estatistica .numero
+{
+	color: #c0c0c0;
+    text-transform: uppercase;
+    background: #ECF0F1;
+    text-align: center;    
+    padding: 15px;
+    margin: 0;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.card-estatistica .texto
+{
+	padding: 15px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.214;
+    color: #fff;
+    text-transform: uppercase;
+    background: #BDC3C7;
+    text-align: center;
+}
+
+.card-jogo-principal
+{
+	border: none;
+}
+
+
+.card-jogo-principal img{
+	width: 100%;
+}
+
+.card-jogo-principal nav{
+	margin-top: 20px;
+}
+
+.card-jogo-principal a.active{
+	background: #efefef !important;
+    border-left: 5px solid #92b3b8;
+    color: #337ab7 !important;
+}
+
+
+/**** CAMPEONATO ****/
+
+.campeonato-pago{
+	
+	display: none;
+}
+
+.campeonato-estatisticas-numero{
+	font-size: 17pt;
+    font-weight: bold;
+    text-align: right;	
+}
+
+.campeonato-estatisticas-texto{
+	font-size: 15pt;
+	font-weight: lighter;	
+}
+
+.bg-campeao{
+	background: #fde019;
+	border-radius: 50%;
+}
+
+.bg-segundo{
+	background: #d1d1d1;
+	border-radius: 50%;
+}
+
+.bg-terceiro{
+	background: #db9d36;
+	border-radius: 50%;
+}
+
+
+.numero-circulo{
+	display: inline-block;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    -moz-border-radius: 30px;
+    border-radius: 30px !important;
+    color: white;
+    text-align: center;
+    font-size: 10pt;
+}
+}
+
+.tabela-inscritos .ordem{	
+	color: #c0c0c0;
+	font-weight: bold;
+}
+
+.tabela-inscritos .btn{
+	
+}
+
+.card-campeonato-info{
+	background-color: #f8f8f8;
+	border: none;
+}
+
+.card-campeonato-info label{
+	margin-bottom: .2rem;
+	margin-top: .8rem;	    
+    font-size: 10pt;
+    color: #c0c0c0;
+}
+
+.card-campeonato-info label:first-child{
+	margin-top: 0;
+}
+
+
+#inscricao-bloco{
+/*
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    */
+}
+
+.card-campeonato-info .card-text{
+
+}
+
+#informacoes-reduzido, #informacoes-completo{
+	font-size: 10pt;
+}
+
+#foto-equipe{
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#foto-equipe img{	
+	max-height: 150px;
+	max-width: 150px;
+}
+
+#foto-equipe-jogador{
+	text-align: center;	
+}
+
+#foto-equipe-jogador img{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+/*** AJUDA ****/
+
+.vip-imagem {
+	text-align: right;
+}
+
+.vip-botao{
+	padding-top: 10px;
+}
+
+.vip-imagem img {
+	max-width: 203px;	
+}
+
+
+
+/*** TABELAS ***/
+
+
+.mata-partida{
+	
+	border: 1px solid #ddd;
+	padding-top: 10px;
+	margin-bottom: -4px;
+	background: white;
+}
+
+.mata-conector1{
+	border: 1px solid #ddd;
+    height: 100px;
+    position: absolute;
+    width: 100%;
+    top: -180px;
+    z-index: -2; 
+    border-left: 0; 
+    background: white
+}
+
+.mata-conector2{
+	border: 1px solid #ddd;
+    width: 100%;
+    position: absolute;
+    top: -130px;
+    right: -50px;
+    z-index: -3;
+}
+
+.final-label-container{
+	text-align: center;
+    position: relative;
+}
+
+.final-label{
+	    padding-left: 14px;
+    padding-right: 14px;
+    font-weight: lighter;
+    font-size: 11px;
+    border: 1px solid #ddd;
+    display: inline;
+    position: absolute;
+    bottom: -10px;
+    border-radius: 10px;
+    z-index: 999;
+    background-color: white;
+    margin-left: -24px;
+    color: #c0c0c0;
+		
+}
+
+.final-label-terceiro-lugar{
+		left: 49.5%;
+}
+
+table.classificacao>tbody>tr:last-child>td{
+	border-bottom: 1px solid #eceeef;
+}
+
+.partidas-container
+{
+	position: absolute;
+	right: 0;
+}
+	
+.classificacao-partida{
+	margin-top: 40px;
+	position: relative;
+}
+
+.classificacao td{
+	vertical-align: middle;
+}
+
+.etapa-titulo{
+	
+	text-align: center;
+    font-size: 21pt;
+    color: #a8c1cf;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.etapa-numero{
+	display: inline-block;
+}
+
+.etapa-titulo .fa{
+	
+	color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.rodada-titulo{
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+    
+    text-align: center;
+    font-weight: bold;
+}
+
+.rodada-titulo .fa{
+	font-size: 20pt;
+	color: #808080;	
+}
+
+.rodada-numero{
+	color: #c0c0c0;
+    font-weight: bold;
+    vertical-align: text-bottom;
+}
+
+.formula-abas-fase{
+	margin-bottom: 0;
+}
+
+.formula-abas-fase.nav-pills .nav-link.active, .formula-abas-fase.nav-pills .nav-link.active:focus, .formula-abas-fase.nav-pills .nav-link.active:hover{
+	border-top: 1px solid #ddd;
+	background-color: #f8f8f8;
+    border-radius: 0%;
+    font-weight: bold;
+    color: #C0C0C0; 
+}
+
+.tabela-user, .tabela-user a{
+	color: #c0c0c0;
+	font-size: 9pt;
+	padding-left: 5px;
+}
+
+.partida .tabela-user a, .partida .tabela-user{
+	padding-left: 0;
+	display: inline-block;
+}
+
+.pontuacao{
+	font-size: 12pt;
+	font-weight: lighter;
+	text-align: center;
+	padding: 10px 7px !important;
+}
+
+table.classificacao>tbody>tr>td{
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.classificacao th{
+	width: 30px;
+	padding: 10px 5px;
+}
+
+.classificacao-left th{
+	width: inherit;
+	padding: 10px 10px;
+}
+
+.classificacao .ordem{
+   padding: 5px !important;
+   font-weight: bold;
+   font-size: 14pt;
+   width: 40px !important;
+   color: #808080;
+   background: white !important;
+   text-align: center;
+   vertical-align: initial;
+}	
+
+
+.classificacao .bg-classificado{
+	background: #fcf8e3 !important;
+}
+
+.classificacao .bg-zonaacesso{
+	
+	color: #0000ff;
+}
+
+.classificacao .bg-zonarebaixamento{
+	
+	color: #ff0000;
+}
+
+table.classificacao>thead>tr>th{
+	text-align: center;
+	  border-top: 1px solid #ddd !important;
+	  border-bottom: 1px solid #ddd !important;
+	  color: #808080;
+
+}
+
+table.classificacao-left>thead>tr>th{
+	  text-align: left;
+	  border-top: 1px solid #ddd !important;
+	  border-bottom: 1px solid #ddd !important;
+	  color: #808080;
+
+}
+
+table.classificacao-striped>thead>tr>th{
+	border-top: none !important;
+	color: inherit;
+}
+
+
+.table-striped-column > tbody > tr td:nth-of-type(odd) {
+  background-color: #f8f8f8;
+}
+
+.table-striped-column > tbody > tr td:nth-of-type(even) {
+ 
+}
+
+.table-striped-column > tbody > tr.warning td:nth-of-type(odd) {
+  background: #fcf8e3 !important;
+}
+
+.partida{
+	
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+
+.excluir-mata{
+	display: none;	
+}
+
+.mata-partida .c-select{
+	border: none;
+	float: left;
+}
+
+a.mata-editar{
+	color: #c0c0c0;
+}
+
+.mata-partida-segunda .excluir-mata{
+	margin-left: -26px;
+    margin-top: -8px;
+    display: block;
+    float: left;
+    margin-bottom: -20px;
+    font-size: 13pt;
+}
+
+.mata-partida-segunda .excluir-mata a{
+	color: #808080;	
+}
+
+
+
+.carousel-matas .partida{
+	border-bottom: none;	
+}
+
+.carousel-matas .jogador-casa, .carousel-matas .jogador-fora{
+	
+	margin-bottom: 10px;	
+}
+
+.carousel-grupos{
+	z-index: 88;
+}
+
+.carousel-matas .carousel-item:first-child .carousel-left, .carousel-matas .carousel-item:last-child .carousel-right,
+.carousel-grupos .carousel-item:first-child .carousel-left, .carousel-grupos .carousel-item:last-child .carousel-right{
+	opacity: 0;
+	
+}
+
+.campeao-mata{
+	text-align: center  !important;
+	margin-bottom: 80px;	
+}
+
+.campeao-mata .img-circulo img{
+	display: block;
+	margin-top: 10px;
+}
+
+.equipe-texto, .campeao-texto{
+	
+	font-size: 24pt;
+    text-align: center;
+    font-weight: lighter;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.campeao-texto{
+	color: #c0c0c0;
+}
+
+
+.campeao-mata img {
+    max-height: 100px;
+    margin: auto;
+}
+
+#final-loading{
+	
+	  position: fixed;
+	  margin: 0 auto;
+	  left: 0;
+	  right: 0;
+	  top: 30%;
+	  
+	  text-align: center;
+	  display: none;
+	  z-index: 100;
+	
+}
+
+
+.partida .equipe-casa, .partida .jogador-casa{
+	text-align: right;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;	
+    display: list-item;
+    list-style: none;
+}
+
+.partida .equipe-fora, .partida .jogador-fora{
+	text-align: left;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: list-item;
+}
+
+.partida .equipe-casa, .partida .equipe-fora, .partida .jogador-fora, .partida .jogador-casa{
+	width: 40%;
+    padding: 0;
+}
+
+.partida .equipe-casa, .partida .equipe-fora{
+	padding-top: 5px;
+}
+
+
+
+
+.partida .placar, .partida .confirmar{
+/*	max-width: 90px; */
+    margin: auto;
+    text-align: center;
+    width: 20%;
+    padding: 0;
+}
+
+.partida .x-placar{
+	margin-top: -40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.partida .confirmar{
+	padding: 10px 11px;
+    padding-bottom: 0;
+}
+
+.partida .confirmar .btn{
+	visibility: hidden;
+}
+
+.partida .jogador-fora, .partida .jogador-casa, .partida .confirmar{
+	margin-top: -12px;
+}
+
+
+input.gols{
+	
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
+	font-weight: bold;
+	font-size: 12pt;
+	width: 32px;
+	margin-bottom: 10px;	
+}
+
+
+
+
+input.gols[disabled]{
+	border: 1px white solid;
+	color: #000 !important;
+	background: #f8f8f8;
+}
+
+
+.filtro-equipes{	
+	text-align: right;
+	margin-top: -30px;
+	padding-bottom: 10px;
+	position: relative;	
+	float: right;
+}
+
+.filtro-equipes-opcoes{	
+	position: absolute;
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	border-radius: 5px;
+	display: none;
+	z-index: 89;
+	padding: 10px 20px;
+	right: 0;
+	width: 300px;
+}
+
+.filtro-equipes-opcoes .form-group{
+	text-align: left;
+}
+
+/*** PERFIL ***/
+.card-perfil-imagem{
+    margin-right: 10px;
+}
+
+#foto-perfil{
+		max-width: 260px;	
+}
+
+#foto-perfil-preview{
+	max-width: 260px;
+	height: 290px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+	
+
+.resultado-icone{
+	vertical-align: middle !important;	
+}
+
+
+.partida-recente-equipe-casa{
+
+	text-align: right;
+}
+
+.perfil-jogos, .perfil-ligas{
+	margin-bottom: 20px;
+	opacity: 0.7;
+	
+}
+
+.perfil-jogos img, .perfil-ligas img{
+	width: 95px !important;
+	height: 95px !important;
+	max-width: 95px;	
+}
+
+.card-titulos{
+	cursor: pointer;
+}
+
+.card-perfil-detalhe{
+	background-color: #f8f8f8;
+	font-size: 12pt;
+	margin-right: 10px;
+	
+}
+
+.card-perfil-detalhe p{
+	
+	margin-bottom: 8px;
+	color: #808080;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.card-perfil-links{
+	font-size: 18pt;
+    padding-top: 10px;
+    border-top: 1px dotted #c0c0c0;
+    margin-top: 15px;
+}
+
+.card-perfil-links a{
+	color: #5a8383;
+}
+
+.card-perfil-links img{
+	width: 22px; 
+	height: 22px;
+	margin: 5px;
+	margin-bottom: 6px;	 
+}
+
+
+/*** SORTEIO ***/
+
+
+#sorteio-finalizado, #sorteio-finalizado-tudo{
+	
+	font-size: 18pt;
+	color: #c0c0c0;
+	display: none;
+}
+
+
+.carousel-sorteio img{
+ 	padding-top: 40px;
+    max-height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ 
+ 	
+ .carousel-sorteio .carousel-item
+ {
+ 	text-align: center;
+ 	height: 170px;	
+ 	padding: 0;
+ }
+ 
+ .carousel-sorteio .carousel-caption{
+ 
+ 	height: 20px;
+    color: black;
+    font-weight: bold;
+    top: 0;
+    top: 10px;
+    padding-top: 0;
+    text-shadow: none;
+    font-size: 8pt;
+    overflow: hidden;
+    white-space: nowrap;
+    right: 10px;
+    left: 10px;
+
+ }
+
+
+.card-sorteio{
+	
+	border: 2px solid #c0c0c0;
+	border-radius: 10px;
+	padding: 0 20px;
+	
+}
+
+
+/**** GERAL ***/
+
+.no-padding{
+	padding-left: 0;
+	padding-right: 0;
+	
+}
+
+.btn.disabled, .btn:disabled, .btn-primary.disabled:hover, .btn-primary:disabled:hover, 
+.btn-info.disabled, .btn-info.disabled:hover, .btn-info:disabled:hover,
+.btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning:disabled:hover{
+	
+	background: #c0c0c0;
+	border: 1px solid #c0c0c0;
+}
+
+.table-striped tbody tr:nth-of-type(odd){	
+	  
+	  background-color: #fbfbfb;	
+}
+
+.lang-menu{
+	margin-left: 0 !important;
+}
+	
+.lang-menu > a:after{
+ 	display:none !important; 	
+}
+
+.lang-menu > a:first-child{	
+	margin-left: 0;
+	margin-right: 0;
+ 	padding-left: 5px;
+ 	padding-right: 5px;
+}
+
+.nav-included{		
+    margin-top: 20px;
+    margin-right: 15px;
+}
+
+.nav-included .active{
+	
+	background: #efefef !important;
+    border-left: 5px solid #92b3b8;
+    color: #337ab7 !important;
+}
+
+.btn-secondary.active{
+	background-color: #658FB3 !important;
+	color: white !important;	
+}
+
+.check-success{
+	color: #5cb85c;
+}
+
+.check-danger{
+	color: #d9534f;
+}
+
+
+.btn-primary{
+	background: #5e9ca2;
+	border-color: #5e9ca2;
+}
+
+.btn-primary:hover{
+	background: #4d7e82;
+	border-color: #5e9ca2;
+}
+
+
+a.btn, button.btn{
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+
+a.btn-minimo, button.btn-minimo{
+    padding: .05rem .55rem;
+    font-size: .675rem;
+}
+
+  
+.fonte-cinza-grande{
+	font-size: 16pt; 
+	color: #808080;	
+}
+
+.btn-group label{
+    padding: 5px;
+    font-size: 10pt;
+}
+
+
+form label.btn-primary{
+	background-color: #f8f8f8;
+	color: #c0c0c0;
+	border-color: #c0c0c0;
+}
+
+form label.active{
+	background-color: inherit;
+}
+
+
+.has-error,  .help-block-error{
+	color: #d9534f;    
+}
+
+
+.has-error input{
+	border: 1px solid #d9534f;
+	background-color: #FFF5F5;
+}
+
+form label{
+	font-weight: bold;
+}
+
+form  p.text-muted{
+	margin-top: -10px;
+}
+
+form .radio p.text-muted{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.c-select{
+	display: block;
+    width: 100%;
+}
+
+.form-inline .c-select{
+    display: inline-block; 
+    width: inherit; 
+}
+
+.popover-title{
+	font-size: 8pt;
+    padding: 5px;
+    color: black
+}
+
+.login-link{
+	border-bottom: 1px dashed;
+	padding: 5px;
+}
+
+.fonte-menor{
+	font-size: 9pt !important;	
+}
+
+
+.modal .alert{
+	border-radius: 0;
+	border: none;
+}
+
+
+
+/**** DROPDOWN ***/
+
+
+.dropdown-menu
+{
+	font-size: 14px;
+}
+
+
+
+/****** NAV *****/
+
+
+.nav-pills .nav-item.open .nav-link, .nav-pills .nav-item.open .nav-link:focus, .nav-pills .nav-item.open .nav-link:hover, .nav-pills .nav-link.active, .nav-pills .nav-link.active:focus, .nav-pills .nav-link.active:hover{
+		
+	background-color: #f8f8f8;
+}
+
+.pesquisar-dropdown .dropdown-toggle::after{
+	content: none;
+}
+
+.pesquisar-dropdown .dropdown-menu{
+	
+	min-width: 300px;
+	padding: 20px 5px;
+}
+
+.pesquisar-dropdown .c-select{
+	width: 100%;
+}
+
+.pesquisar-dropdown .form-group{
+	margin-bottom: 0;
+}
+
+.pesquisar-dropdown label{
+	font-weight: bold;
+}
+
+
+.navbar{
+	
+	background-color: #6fbec5;
+	
+	margin-bottom: 40px;
+	border-radius: 0;
+}
+
+.navbar-brand img{
+	margin-top: -2px;
+}
+
+.nav-tabs{
+	margin-bottom: 10px;
+}
+
+
+.navbar-brand img{
+    height: 24px;
+}
+
+.nav-topo img.logo
+{
+	height: 20px;
+    margin-top: -5px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+	color: white;	
+}
+
+/*
+.nav-pills .nav-item.open .nav-link, .nav-pills .nav-item.open .nav-link:focus, .nav-pills .nav-item.open .nav-link:hover, .nav-pills .nav-link.active, .nav-pills .nav-link.active:focus, .nav-pills .nav-link.active:hover {
+	background-color: #e7e7e7;
+	color: #555;	
+	
+}
+
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .active>.nav-link:focus, .navbar-light .navbar-nav .active>.nav-link:hover, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.active:focus, .navbar-light .navbar-nav .nav-link.active:hover{	
+	color: white;	
+}
+*/
+
+/**** COL CENTERED ****/
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+
+/**** MINIMO DESKTOP ***/
+@media (min-width: 62em) {
+
+	.tab-content #inscricoes, .tab-content #informacoes{
+		display: block;
+	}
+
+}
+	
+
+/**** maximo tablet **/
+@media (max-width: 48em) {
+
+	/*** ARENA-NAV**/
+	
+	.arena-nav-container{
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	
+	.arena-nav{
+		border-bottom: none !important;
+		display: table;
+		width: 100%;
+		margin-top: 5px;
+	}
+	
+	.arena-nav .nav-item{
+		display: table-cell;
+		float: none;
+	}
+	
+	.arena-nav .nav-link {
+	    border-left: none;
+	    border-right: none;
+	    border-radius: 0;
+	    border-bottom: 4px solid #f8f8f8;
+	    margin: 0 !important;
+	    color: #c0c0c0;
+	    text-transform: uppercase;
+    		
+	}
+	
+	.nav-pills .nav-link{
+		color: #c0c0c0;
+	}
+	
+	
+	.arena-nav .nav-link.active, .arena-nav .nav-link.active:focus, .arena-nav .nav-link.active:hover {
+	    border-bottom: 4px solid #92b3b8;
+    	background-color: white !important;
+    	border-radius: 0;
+    	color: #92b3b8 !important;
+    	border-top: 0;
+    	
+	}
+	
+	.arena-nav .nav-link{
+		padding: 8px;
+	}
+	
+	
+	
+	
+	.tab-content #informacoes{
+		margin-top: 20px;
+	}
+	
+	/*** VIP ***/
+	
+	.vip-imagem, .vip-botao{
+		text-align: center;
+	}
+	
+	
+	/*** LIGAS ***/
+	
+	.liga-menu{
+		margin-bottom: 20px;
+		color: #a8c1cf;
+	}
+	
+	.liga-menu button{
+		padding-left: 0;
+		color: #a8c1cf;
+	}
+	
+	
+	.liga-header{
+		padding: 0;
+		height: inherit;
+	}
+	
+	.liga-nome {
+    	padding-top: 20px;	    
+	    text-align: center;
+	    background-color: white;
+	    margin-bottom: -1px;
+	}
+	
+	.liga-escudo{
+		margin-bottom: -10px;
+	    z-index: 8;
+    }
+	
+	.liga-header h3{
+	    font-size: 15pt;
+    	text-shadow: none;
+    	color: #808080;
+	}
+	
+	.liga-background{
+		background-image: none !important;
+		margin-bottom: 20px;
+	}
+	
+	.liga-background-mobile{
+		margin-left: -20px;
+		margin-right: -20px;	
+		margin-top: -20px;
+		height: 160px;	
+	}
+	
+	.liga-escudo img{
+		margin: auto;
+	}
+	
+	.nav-liga .active{
+		border-bottom: none;
+	}
+	
+	.nav-liga .nav-item{
+		width: 100%;
+		margin-left: 0 !important;
+	}
+	
+	.nav-liga .nav-link, .nav-liga .nav-link:first-child{
+		padding-left: 20px !important;
+	}
+	
+	.card-liga{
+		border: 2px solid white;
+	}
+	
+	.liga-comentario-user{
+		max-width: inherit;
+	}
+	
+	/**** MODAL ***/
+	
+	.modal .label {
+	
+		display: block;
+		white-space: inherit;
+	}
+	
+	/*** NAV PILLS **/
+	
+	.arena-pills .nav-pills{		
+		margin-bottom: 20px;    	
+    	display: table;
+    	table-layout: fixed;
+	}
+	
+	.arena-pills .nav-pills::after{
+		content: none;
+	}
+	
+	.arena-pills .nav-pills .nav-item{
+		 float: none;
+    	display: table-cell;
+    	text-align: center;
+	}
+	
+	
+	
+	.arena-pills .nav-pills .nav-link{
+		display: block;
+	    border-left: none;
+	    border-radius: 0;
+	    border-bottom: 4px solid #f8f8f8;
+	    margin: 0 !important;
+	    color: #c0c0c0;
+	}
+	
+	.arena-pills .nav-pills .nav-link.active{
+		border-bottom: 4px solid #92b3b8;
+		background-color: white !important;
+		border-radius: 0;
+	}
+	
+	.nav-included{
+	    margin-top: 0;
+    	margin-bottom: 20px;
+	}
+	
+	/*** PERFIL ***/
+	
+	.card-perfil-links img{
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	 .card-perfil-links i{
+	 	margin-left: 5px;
+	 }
+	
+	.card-perfil-imagem {
+		text-align: center;
+		margin-top: -20px;		    
+    	background-image: url(../img/perfil-mobile.png);
+    	background-position: -120% 60%;
+    	margin-right: 0px;
+	}
+	
+	.card-perfil-detalhe{
+		margin-right: 0;
+		text-align: center;
+		background: white;
+		padding-bottom: 10px;
+	}
+	
+	.card-perfil-detalhe p{
+		font-weight: bold;
+	}
+	
+	.card-perfil-detalhe  p+p{
+		display: none;
+	}
+	
+	.card-perfil-links{
+		
+		padding-top: 0;
+		padding-bottom: 10px;
+		margin-top: 10px;
+	}
+	
+	.card-perfil-imagem img{
+		width: 120px;
+		height: 120px;
+	    margin-top: 10px;
+	    margin-bottom: 5px;
+	    border: 3px solid #fff;
+	    border-radius: 100%;
+	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	    margin-bottom: -10px;
+	    display: initial;
+	}
+	
+	.numero-circulo{
+		font-size: 8pt;
+    	font-weight: normal;
+    	height: 20px;
+    	width: 20px;
+    	line-height: 20px;
+	}
+	
+    
+	.perfil-jogos, .perfil-ligas{
+		border: 2px solid white;
+		margin-bottom: 0;
+		opacity: 1;
+	}
+	
+	.jogos-all{
+	
+		border: 6px solid white;
+		margin-bottom: 20px;
+	}
+
+		.row-perfil{
+			margin: 0;
+		}
+	
+	.card-estatistica-perfil .numero{
+		font-size: 13pt;
+		font-size: 13pt;
+		margin: 0 15px;
+	}
+	
+	.card-estatistica-perfil .texto{
+		margin: 0 15px;
+	}
+	
+	.partida-recente{		
+		max-width: 120px;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
+	
+	.partida-recente-equipe-casa{
+	
+		text-align: left;
+		max-width: 150px;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
+	
+	.etapa-titulo{
+		font-size: 15pt;
+	}
+	
+	.etapa-titulo .fa{
+		font-size: 15pt;
+	}
+	
+	.nome-equipe-inscricao{		
+		white-space: nowrap;
+	    max-width: 150px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    padding-left: 3px;
+	}
+	
+	/*** GERAL ***/
+	
+	.welcome-locales img{
+		width: 60px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+	}
+	
+	.table{
+		font-size: 10pt;
+	}
+	
+	.hide-h3  h3, .hide-h4  h4{
+		display: none;
+	}
+	
+	.nav-tabs .nav-link{
+		font-size: 10pt;
+    	padding: 0.6em 0.8em;
+    	color: #c0c0c0;	
+	}
+	
+	/**** JOGO ****/
+
+	.card-jogo-principal .nav-pills .nav-link{
+		display: initial;
+	    border-left: none;
+	    border-radius: 0;
+	    border-bottom: 4px solid #f8f8f8;
+	    margin: 0 !important;
+	    color: #c0c0c0;
+	}	
+	
+	.card-jogo-principal .nav-pills .active{
+		border-bottom: 4px solid #92b3b8;
+		background-color: white !important;
+	}
+	
+	
+	.card-jogo-principal .nav  {
+		font-size: 11pt;
+		margin-bottom: 30px;
+		margin-top: 15px;
+	}
+	
+	.card-jogo-principal-capa{
+    	position: relative;
+    	height: 200px;
+    	overflow: hidden;	    	    				
+	}
+	
+	.card-jogo-principal{
+		   margin-top: -40px;
+		   margin-left: -15px;
+	       margin-right: -15px;
+	}
+	
+	.card-jogo-principal .label-pill{
+		display: none;
+	}
+
+	
+	.card-jogo-principal h3{
+	 	display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-direction: row;
+	    height: 200px;
+	    position: absolute;
+	    z-index: 09203920;
+	    color: white;
+	    text-align: center;
+	    width: 100%;
+	    padding: 10px;
+	    
+	}
+	
+	.card-jogo-principal-capa:after{
+		content:'';
+	    top: 0;
+	    left: 0;
+	    z-index: 10;
+	    width: 100%;
+	    height: 100%;
+	    display: block;
+	    position: absolute;
+	    background: black;
+	    opacity: 0.2;
+	}
+	
+	
+	/***** CAMPEONATO *****/
+	
+	#inscricao-bloco{
+		position: absolute;
+	    top: -70px;
+	    width: 100%;
+	    max-width: 350px;
+	}
+	
+	#inscrever{
+		display: block;
+	}
+	
+	#criar-campeonato-user{
+	
+		margin: 15px;
+    	margin-top: 0;
+    	display: block;
+    
+	}
+	
+	#filtro-campeonato .c-select{
+		width: 46%;
+		margin-bottom: 10px;
+		margin-right: 3px;
+	}	
+	
+	#filtro-campeonato .btn{
+		margin-top: -10px;
+	}
+	
+	#criar-campeonato-pre, #filtrar-campeonato-pre{
+		width: 48%;
+		margin-bottom: 20px;
+	}
+	
+	.tabela-inscritos .btn{
+	
+		display: block;
+    	width: 100%;
+    	padding: 3px;
+	}
+	
+	.menu-block-button .btn{
+		display: block;
+    	width: 100%;
+    	margin-bottom: 5px;
+	}
+	
+	.card-campeonato-info .card-text{	
+		border-bottom: 1px dotted rgba(228, 228, 228, 0.79);
+    	padding-bottom: 10px;
+	}
+	
+	#informacoes-reduzido, #informacoes-completo{
+		overflow-wrap: break-word;
+	}
+	
+	.card-campeonato-info {
+		font-size: 10pt;
+		background: white;
+		padding: 0;
+	}
+	
+	.card-campeonato-info-initial{
+		padding-top: 70px;
+	}
+	
+	
+	.card-campeonato-info  div{
+		border-right: none !important;
+		
+	}
+	
+	.card-campeonato-info label{
+	    
+	}
+	
+	.card-titulo-campeonato {
+	    margin-top: -20px;
+	    padding: 0;
+	    position: relative;
+	}
+	
+	.card-titulo-campeonato h3 {
+	   display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-direction: row;
+	    height: 180px;
+	    position: absolute;
+	    z-index: 78;
+	    color: white;
+	    text-align: center;
+	    width: 100%;
+	    padding: 10px;
+	    font-size: 18pt;
+	    OVERFLOW: hidden;
+	    margin-top: 10px;
+	    margin-bottom: 0;
+	    padding-bottom: 0;
+	    font-weight: bold;
+	}
+	
+	.card-capa-campeonato {
+	    position: relative;
+	    height: 200px;
+	    overflow: hidden;
+	}
+	
+	.card-capa-campeonato img {
+	    width: 100%;
+	    border-radius: 0;
+	}
+	
+	/*** TABELA ****/
+	
+	table.classificacao>thead>tr>th{
+		border-top: none !important;
+		font-weight: normal;
+	}
+	.classificacao-partida{
+		margin-top: 0;
+	}
+	
+	.classificacao-partida{
+		margin-bottom: 20px;
+	}
+	
+	.partida .equipe-casa, .partida .jogador-casa{
+		padding-right: 0px;
+		margin-top: 0;
+/*		width: 35%; */
+		display: inline-block;
+	}
+	
+	.partida .equipe-fora, .partida .jogador-fora{
+		padding-left: 0px;
+		margin-top: 0;
+	/*	width: 35%; */
+		display: inline-block;
+	}
+	
+	.partida .confirmar, .partida .placar{
+		/* width: 25%; */
+	}
+	
+	.partidas-container .row{
+		/*	
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		*/
+	}
+	
+	.partidas-container{
+		margin-bottom: 20px;
+		position: inherit;
+    	right: inherit;
+	}
+	
+	.tabela-user{
+		display: none;
+	}
+	
+	.classificacao .tabela-user, .classificacao .tabela-user a{
+		
+		padding-left: 0;
+	}
+	
+	
+	.partida:last-child{
+		border-bottom: 2px solid #f8f8f8;
+	}
+	
+	.carousel-matas .carousel-item:last-child{
+		border-bottom: none;	
+	}
+	
+	.mata-partida-segunda .excluir-mata{
+		margin-left: inherit;
+		margin-top: -18px;
+	}
+	
+	.mata-conector1,.mata-conector2
+	{
+		border: none;
+	}
+	
+	.mata-partida{
+		margin-bottom: -8px;
+	}
+	
+	.mata-partida-segunda{
+	
+		border-top: 2px solid white;
+	    z-index: 99;
+	    background: white;
+	}
+	
+	.carousel-item .mata-partida-segunda:first-child{
+		border-top: 1px solid #ddd;
+	}
+	
+	
+	.classificacao .ordem{
+		width: inherit !important;
+	}
+	
+	/*** SORTEIO ***/
+	#sorteio-botoes{
+		margin-top: 20px;
+	}
+	
+	#sorteio-botoes .btn{
+		display: block;
+	    width: 100%;
+	    margin-bottom: 10px;  	
+	}
+	
+	
+	/*** GERAL ****/
+	
+	.welcome-container{
+		margin-left: -15px;
+		margin-right: -15px;
+		padding: 20px;
+    	padding-top: 80px;
+    	text-align: center;
+    	background-position: 90% 100% !important;
+    	padding-right: inherit;
+	}
+		
+	
+	.welcome-banner .numero{
+		font-size: 12pt;
+	}
+	
+	.welcome-banner .texto{
+		font-size: 7pt;
+	}
+	
+	.welcome-banner .estatistica{
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	
+	.welcome-banner{
+	    margin-bottom: 0;
+    	padding-bottom: 0;
+	}
+	
+	.dropdown-item{
+		padding: 10px 20px;
+	}
+	
+	
+	.dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover{
+		color: inherit;
+		background:inherit; 
+	}
+	
+	.nav-topo{
+		margin-bottom: 20px;
+		padding-left: 10px;
+	}
+	
+	.nav-topo li.dropdown.open{		
+		padding-bottom: 0;
+	}
+	
+	.nav-topo .navbar-nav .nav-item{
+		padding: 10px;		
+	}
+	
+	.nav-topo .navbar-nav .nav-item+.nav-item{
+		width: 100%;
+		margin-left: 0;
+		padding: 10px;
+	}
+	
+	.nav-topo .container{
+		padding: 0;
+	}
+	
+	
+	.nav-topo .dropdown-menu-right
+	{
+		    left: 0;
+    		right: auto;	
+	}
+		
+	
+	.nav-topo .pesquisar-dropdown .dropdown-menu-right{
+		
+		padding: 20px;
+		min-width: 300px;
+		right: auto;
+		left: inherit;
+	}
+	
+	.nav-topo .nav-item+.nav-item.dropdown{
+		width: inherit;
+		padding-bottom: 0;
+	}
+	
+	.nav-topo .navbar-toggler{
+		color: white;
+	}
+	
+	h3{
+		margin-bottom: 20px;
+	}
+	
+	h4{
+		margin-top: 20px;
+	}
+	
+	[class*='col-xs'] {
+	    padding-right:0;
+	    padding-left:0;
+	}
+	
+	.padding-xs{
+		padding-right: 15px !important;
+	    padding-left: 15px !important;
+	}
+	
+	.padding-left-xs{	
+	    padding-left: 15px !important;
+	}
+	
+	.padding-right-xs{	
+	    padding-right: 15px !important;
+	}
+	
+	.no-padding-xs{	
+		padding-left: 0 !important;
+		padding-right: 0 !important;	
+	}
+	
+		
+	.conteudo{
+		min-height: inherit;
+	}
+}
+
+
+@media (min-width: 700px) {
+
+	/* .mata-partida-segunda{
+	
+		border-top: 1px solid #ddd ;
+	}
+		 */
+}
+
+@media (min-width: 700px) and  (max-width: 900px){
+
+	.nav-liga .nav-item{
+		width: inherit;
+	}
+	
+	.liga-nome{
+		padding-top: 80px;
+		text-align: inherit;
+		background-color: inherit;			
+	}
+	
+	.liga-nome h3{
+		color: white;
+		text-shadow: 1px 1px 40px rgba(0,0,0,0.7);
+	}
+
+}
+
+
+@media print {
+	
+	h3{
+		color: white;
+	}
+	
+	.hidden-md-down .tabela-user {
+		display: block !important;
+	}
+	
+	.classificacao-partida{
+		page-break-after: right;
+	}
+	
+	.partidas-container{
+		position: inherit;
+		display: block !important;
+	}
+	
+	.carousel-grupos .carousel-item{
+		display: block !important;
+		width: 48%;
+		margin-left: 10px;
+		float: left;
+	}
+	
+	.carousel-item .fa-angle-right, .carousel-item .fa-angle-left,
+	.mostrar-nome-jogadores, .filtro-equipes{
+		display: none;
+		
+	}
+	
+	#formula-aba-grupo ul li:last-child{
+		display: none !important;
+	
+	}
+	
+	.carousel-matas .col-md-12{
+		width: inherit;
+	}
+	
+	.carousel-matas .carousel-item .col-xs-12{
+		width: 50%;
+	}
+	
+	.carousel-matas .carousel-item{
+		display: block;
+	}
+	
+	.mata-partida-segunda{
+		border: 1px solid #ddd !important;
+	}
+	
+	
+	
+	
+	
+}

@@ -25,6 +25,13 @@ const db = admin.firestore();
 db.settings({timestampsInSnapshots: true});
 
 const app = express();
+
+exphbs.create({
+    helpers: {
+        posicao: function(index) { return index + 1; }
+    }
+});
+
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('views', './views');
 app.set('view engine', 'hbs');
@@ -41,9 +48,48 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// index
 app.get('/utilizador', (req, res) => {
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-    res.render('utilizador/index');
+    var users = [];
+    admin.auth().listUsers().then(function(listUsersResult) {
+        listUsersResult.users.forEach(function(userRecord) {
+            users.push({
+                uid: userRecord.uid,
+                email: userRecord.email,
+                displayName: userRecord.displayName,
+                disabled: userRecord.disabled
+            });
+        });
+        res.render('utilizador/index', { users });
+    });
+});
+
+// save
+app.get('/utilizador/adicionar', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    res.render('utilizador/create');
+});
+
+// store
+app.post('/utilizador', (req, res) => {
+    admin.auth().createUser({
+        email: req.body.email,
+        emailVerified: false,
+        phoneNumber: "+258"+req.body.telemovel,
+        password: req.body.password,
+        displayName: req.body.utilizador,
+        photoURL: req.body.photo,
+        disabled: false
+      })
+        .then(function(userRecord) {
+          // See the UserRecord reference doc for the contents of userRecord.
+          console.log("Successfully created new user:", userRecord.uid);
+        })
+        .catch(function(error) {
+          console.log("Error creating new user:", error);
+        });
+        res.end('successfully');
 });
 
 // ------------------ equipe ---------------------
@@ -54,7 +100,14 @@ app.get('/equipe', (req, res) => {
     var equipes = [];
     db.collection('equipes').get().then(snapshot => {
         snapshot.forEach(doc => {
-            equipes.push(doc.data());
+            equipes.push({
+                id: doc.id,
+                nome: doc.data().nome,
+                sigla: doc.data().sigla,
+                delegado: doc.data().delegado,
+                emblema: doc.data().emblema,
+                data: doc.data().data
+            });
         });
         res.render('equipe/index', { equipes });
     });
@@ -76,6 +129,157 @@ app.post('/equipe', (req, res) => {
         data: new Date()
     });
     res.end('successfully');
+});
+
+// edit
+app.get('/equipe/:id', (req, res) => {
+
+});
+
+// update
+app.post('/equipe/update', (req, res) => {
+
+});
+
+// delete
+app.get('/equipe/delete/:id', (req, res) => {
+    db.collection('equipes').doc(req.params.id).delete();
+    res.redirect('/equipe');
+});
+
+// ------------------ plantel -------------------
+// index
+app.get('/plantel/:id', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var jogadores = [];
+    var defesas = []; var medios = []; var avancados = []; var guardaredes = [];
+    db.collection('equipes').doc(req.params.id).get().then(doc => {
+        if (doc.exists) {
+            plantel = doc.data().jogadores;
+            
+            if(plantel) {
+                plantel.forEach(function(jogador) {
+                    if (jogador.categoria==='Defesa') {
+                        defesas.push(jogador);
+                    } else if (jogador.categoria==='Medio') {
+                        medios.push(jogador);
+                    } else if (jogador.categoria==='Avancado') {
+                        avancados.push(jogador);
+                    } else {
+                        guardaredes.push(jogador);
+                    }
+                });
+                res.render('equipe/plantel', { id: req.params.id, guardaredes, defesas, medios, avancados });
+            }else {
+                res.render('equipe/plantel');
+            }
+            
+        }
+    });
+    
+    // db.collection('equipes').doc(req.params.id).get().
+});
+
+// store
+app.post('/plantel', (req, res) => {
+    var equipeRef = db.collection('equipes').doc(req.body.idEquipe);
+    db.runTransaction(transaction => {
+        return transaction.get(equipeRef).then(snapshot => {
+            const largerArray = snapshot.get('jogadores');
+            largerArray.push(req.body.jogador);
+            transaction.update(equipeRef, 'jogadores', largerArray);
+        });
+    });
+    res.end('successfully');
+});
+
+// ------------------ campeonato--------------------
+
+// ------------------ calendario---------------------
+
+// index
+app.get('/campeonato/calendario', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var jornadas = [];
+    db.collection('jornadas').orderBy('chave').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            jornadas.push({
+                numero: doc.id,
+                jogos: doc.data().jogos,
+            });
+        });
+        res.render('campeonato/calendario', { jornadas });
+    });
+});
+
+app.post('/campeonato/calendario', (req, res) => {
+var index = req.body.index;
+var docRef = db.collection('jornadas').doc(req.body.jornada);
+var equipeCasaRef = db.collection('equipes').doc(req.body.casa);
+var equipeForaRef = db.collection('equipes').doc(req.body.fora);
+
+    db.runTransaction(transaction => {
+        return transaction.get(docRef).then(snapshot => {
+          const largerArray = snapshot.get('jogos');
+          largerArray[index].casa.golos = parseInt(req.body.casaGol);
+          largerArray[index].fora.golos = parseInt(req.body.foraGol);
+          largerArray[index].feito = true;
+          transaction.update(docRef, 'jogos', largerArray);
+        });
+      });
+      
+    db.runTransaction(t => {
+    return t.get(equipeCasaRef)
+        .then(doc => {
+            // Add one person to the city population
+            var newPontos = doc.data().classificacao.pontos + parseInt(req.body.casaPontos);
+            var newJornadas = doc.data().classificacao.jornadas + 1;
+            var newVitorias = doc.data().classificacao.vitorias + parseInt(req.body.casaVitorias);
+            var newEmpates = doc.data().classificacao.empates + parseInt(req.body.casaEmpates);
+            var newDerrotas = doc.data().classificacao.derrotas + parseInt(req.body.casaDerrotas);
+            var newGm = doc.data().classificacao.gm + parseInt(req.body.casaGol);
+            var newGs = doc.data().classificacao.gs + parseInt(req.body.foraGol);
+            var newSg = newGm - newGs;
+            t.update(equipeCasaRef, { 
+                classificacao :{ pontos: newPontos, jornadas: newJornadas, vitorias: newVitorias, empates: newEmpates,
+                derrotas: newDerrotas, gm: newGm, gs: newGs, sg: newSg }
+            });
+        });
+    });
+
+    db.runTransaction(t => {
+        return t.get(equipeForaRef)
+            .then(doc => {
+                // Add one person to the city population
+                var newPntos = doc.data().classificacao.pontos + parseInt(req.body.foraPontos);
+                var newJornadas = doc.data().classificacao.jornadas + 1;
+                var newVitorias = doc.data().classificacao.vitorias + parseInt(req.body.foraVitorias);
+                var newEmpates = doc.data().classificacao.empates + parseInt(req.body.foraEmpates);
+                var newDerrotas = doc.data().classificacao.derrotas + parseInt(req.body.foraDerrotas);
+                var newGm = doc.data().classificacao.gm + parseInt(req.body.foraGol);
+                var newGs = doc.data().classificacao.gs + parseInt(req.body.casaGol);
+                var newSg = newGm - newGs;
+                t.update(equipeForaRef, { 
+                    classificacao: { pontos: newPntos, jornadas: newJornadas, vitorias: newVitorias, empates: newEmpates,
+                    derrotas: newDerrotas, gm: newGm, gs: newGs, sg: newSg}
+                });
+            });
+        });
+
+    res.end('successfully');
+})
+
+// ------------------ classificacao --------------------
+// index
+app.get('/campeonato/classificacao', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var equipes = [];
+    db.collection('equipes').orderBy('classificacao.pontos', 'desc').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            equipes.push(doc.data());
+        });
+        res.render('campeonato/classificacao', { equipes, helpers: { posicao: function(index) { return index + 1; } } });
+    });
 });
 
 exports.app = functions.https.onRequest(app);

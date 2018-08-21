@@ -24,22 +24,26 @@
         <table class="table table-striped m-b-none" id="DataTables_Table_0">
           <thead>
             <tr>
-              <th width="15%">Sigla</th>
-              <th width="35%">Nome</th>
-              <th width="35%">Delegado</th>
-              <th width="15%" style="text-align: center">ações</th>
+              <th width="5%">EBM</th>
+              <th width="10%">SIGLA</th>
+              <th width="35%">NOME</th>
+              <th width="25%">DELEGADO</th>
+              <th width="10%">PLANTEL</th>
+              <th width="15%" style="text-align: center">AÇÕES</th>
             </tr>
           </thead>
           <tbody>
               {{#each equipes }}
               <tr>
+                <td><img src="{{ emblema }}" alt="" style="width: 25px;" class="thumb-lg img-circle"></td>
                 <td>{{ sigla }}</td>
                 <td>{{ nome }}</td>
                 <td>{{ delegado.nome }}</td>
+                <td style="text-align: center"><a href="/plantel/{{ id }}"><i class="fa fa-external-link"></a></td>
                 <td style="text-align: center">
-                  <a href="/previlegios/{{ id }}" class="btn btn-sm btn-icon btn-info"><i class="fa fa-edit"></i></a>
+                  <a href="/equipe/{{ id }}" class="btn btn-sm btn-icon btn-info"><i class="fa fa-edit"></i></a>
                   <a href="#" class="btn btn-sm btn-icon btn-success"><i class="fa fa-search"></i></a>
-                  <a href="/previlegios/delete/{{ id }}" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash-o"></i></a>
+                  <a href="/equipe/delete/{{ id }}" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash-o"></i></a>
                 </td>
               </tr>
               {{/each}}
