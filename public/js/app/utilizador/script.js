@@ -4,42 +4,6 @@ $(function() {
     
     var photoTemp = '';
 
-    // Get elements
-//     $('#fileButton').change(function(e) {
-//         // Get file
-//         var file = e.target.files[0];
-
-//         // Create a storage ref
-//         var storageRef = firebase.storage().ref('foto-perfil/' + file.name); 
-
-//         // Upload file
-//         var task = storageRef.put(file);
-
-//         // Update progress bar
-//         task.on('state_changed',
-
-//             function progress(snapshot) {
-//                 var percentage = (snapshot.bytesTransferred /
-//                 snapshot.totalBytes) * 100;
-//                 $('#uploader').val(percentage);
-//             },
-
-//             function error(err) {
-
-//             },
-
-//             function complete() {
-//                 // Handle successful uploads on complete
-//                 // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-//                 task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-//                     $('#photo').val(downloadURL);
-//                 });
-//             }
-
-//     );
-// });
-
-
     $('#profile-file-input').change(function (event) {
 
         var output = document.getElementById('change-profile-pic');

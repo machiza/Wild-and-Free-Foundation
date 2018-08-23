@@ -1,6 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WFF</title>
 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+    <link href="../css/cliente.css" rel="stylesheet">
 
-<script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBL1Z0xIrNTaojvv4Xc2ZvhpuE-pk6JXWM",
+        authDomain: "wild-and-free-foundation.firebaseapp.com",
+        databaseURL: "https://wild-and-free-foundation.firebaseio.com",
+        projectId: "wild-and-free-foundation",
+        storageBucket: "wild-and-free-foundation.appspot.com",
+        messagingSenderId: "753693107985"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+<body>
 
+  <!-- Second navbar for sign in -->
+    <nav class="navbar navbar-default" style="background-color:#6fbec5;">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a style="color: #ffffff; " class="navbar-brand" href="/"><img alt="Brand" src="../images/rhino1.png" style="width: 120px; margin-top: -8px;"></a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" style="color: #ffffff">Home</a></li>
+            <li><a href="#" style="color: #ffffff">Campeonato</a></li>
+            <li><a href="#" style="color: #ffffff">News</a></li>
+            <li><a href="#" style="color: #ffffff">Ajuda</a></li>
+            <li>
+              <a style="color: #ffffff" class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+            </li>
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2" style="background-color:#6fbec5;">
+            <div class="navbar-form navbar-right form-inline" role="form">
+              <div class="form-group">
+                <label class="sr-only" for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Password" required />
+              </div>
+              <button id="btnLogin" class="btn btn-success">Sign in</button>
+            </div>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
 
-</script>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active carousel-image">
+                  <img src="../images/primeira.jpg" alt="...">
+                  <div class="carousel-caption">
+                    ...
+                  </div>
+                </div>
+                <div class="item carousel-image">
+                  <img src="../images/segunda1.jpg" alt="...">
+                  <div class="carousel-caption">
+                    ...
+                  </div>
+                </div>
+                <div class="item carousel-image">
+                  <img src="../images/terceira.jpg" alt="...">
+                  <div class="carousel-caption">
+                    ...
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        {{!-- <div class="panel panel-info">
+          <div class="panel-heading">
+          <h3 class="panel-title">The Rhino Cup 2018</h3>
+        </div>
+        <div class="panel-body">
+          Os rinocerontes da África do Sul estão a ser escalfados para os seus chifres em números
+           sem precedentes. Com o Parque Nacional Kruger na fronteira de Moçambique - um dos 
+           países mais pobres do mundo, os aldeões locais são atraídos para matar o rinoceronte ' s.
+          Mas as coisas estão a mudar. Uma liga de futebol foi criada na região, para ajudar a elevar
+           as comunidades - o Rhino Cup Champions League. Em uma área de imensa pobreza, sem 
+           emprego e pouca comida, os mundos maior jogo, o futebol está trazendo as pessoas 
+           juntas e dando esperança para o futuro.
+          O objetivo final - para parar de caçar através do futebol, antes do seu tarde demais.
+        </div>
+        </div> --}}
+        <div class="row">
+          <div class="col-sm-6 col-md-12">
+            <div class="thumbnail">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://player.vimeo.com/video/274231373" width="640" height="272" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              </div>
+              <div class="caption">
+                <p>Os rinocerontes da África do Sul estão a ser escalfados para os seus chifres em números sem precedentes. Com o Parque Nacional Kruger na fronteira de Moçambique - um dos países mais pobres do mundo, os aldeões locais são atraídos para matar o rinoceronte ' s.
+                    Mas as coisas estão a mudar. Uma liga de futebol foi criada na região, para ajudar a elevar as comunidades - o Rhino Cup Champions League.Em uma área de imensa pobreza, sem emprego e pouca comida, os mundos maior jogo...</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+         <div class="row">
+          <div class="col-sm-6 col-md-12">
+            <div class="thumbnail">
+              <img src="../images/inspired.jpg" alt="...">
+              <div class="caption">
+                {{!-- <h3>Thumbnail label</h3> --}}
+                <p>É tão lindo ver a inspiração e a aspiração que o Rhino Cup Champions League traz para as crianças jovens dentro dessas comunidades.
+                  <br />
+                  <br />
+                </p>
+                {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-sm-6 col-md-12">
+            <div class="thumbnail">
+              <img src="../images/confidence.jpg" alt="..." >
+              <div class="caption">
+                {{!-- <h3>Thumbnail label</h3> --}}
+                <p>Esportes boost auto-estima!
+                  Reduzem a pressão e o stress!
+                  Eles constroem confiança!
+                  Através do Rhino Cup Champions League somos capazes de crescer e desenvolver esses jovens.</p>
+                {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-sm-6 col-md-12">
+            <div class="thumbnail">
+              <img src="../images/soccerlife.jpg" alt="..." >
+              <div class="caption">
+                {{!-- <h3>Thumbnail label</h3> --}}
+                <p>Você pode acreditar que o round 6 está aqui, veja o horário abaixo. Estamos tão animados para os próximos jogos se chutar
+                  <br /><br />
+                </p>
+                {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    
+
+  </div><!-- /.container-fluid -->
+    
+  <script src="../js/jquery.min.js"></script>
+  <script>
+    $('#btnLogin').click(function() {
+      const email = $('#Email').val();
+      const pass = $('#Password').val();
+
+      firebase.auth().signInWithEmailAndPassword(email, pass)
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode === 'auth/wrong-password') {
+            alert('password Incorrecta.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+        });
+    });
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        window.location.href = "/admin";
+      } else {
+        console.log('not logged in');
+      }
+    });
+  </script>
+
+</body>
+</html>

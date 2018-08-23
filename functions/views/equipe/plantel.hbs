@@ -4,15 +4,17 @@
       <section class="vbox">
         <header class="header bg-white b-b b-light">
           <a href="#aside" data-toggle="class:show" class="btn btn-sm btn-default pull-right">Create</a>
-          <p>Plantel</p>
+          <p>{{ equipe }}</p>
         </header>
         <section class="scrollable wrapper">
           <section class="panel panel-default">
+            <input type="hidden" id="equipe" value="{{equipe}}">
           <div class="table-responsive">
             <table class="table table-striped m-b-none" >
               <thead>
                 <tr>
-                  <th width="60%">Guardaredes</th>
+                  <th width="55%">Guardaredes</th>
+                  <th width="5%">Reforço</th>
                   <th width="5%" style="text-align: center">Numero</th>
                   <th width="5%" style="text-align: center">Posicao</th>
                   <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
@@ -26,8 +28,13 @@
                 {{#each guardaredes }}
                 <tr>
                   <td>
-                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                    <img src="{{foto}}" alt="John said" class="img-circle" style="width: 40px; height: 40px;"> {{ nome }}
                   </td>
+                  {{#if reforco }}
+                    <td style="text-align: center; color: red;"><i class="fa fa-check"></i></td>
+                  {{else}}
+                    <td style="text-align: center"></td>
+                  {{/if}}
                   <td style="text-align: center">{{numero}}</td>
                   <td style="text-align: center">{{posicao}}</td>
                   <td style="text-align: center">0</td>
@@ -43,7 +50,8 @@
             <table class="table table-striped m-b-none" >
               <thead>
                 <tr>
-                  <th width="60%">Defesas</th>
+                  <th width="55%">Defesas</th>
+                  <th width="5%" style="text-align: center">Reforço</th>
                   <th width="5%" style="text-align: center">Numero</th>
                   <th width="5%" style="text-align: center">Posicao</th>
                   <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
@@ -57,8 +65,13 @@
                 {{#each defesas }}
                 <tr>
                   <td>
-                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                    <img src="{{foto}}" alt="John said" class="img-circle" style="width: 40px; height: 40px;"> {{ nome }}
                   </td>
+                  {{#if reforco }}
+                    <td style="text-align: center; color: red;"><i class="fa fa-check"></i></td>
+                  {{else}}
+                    <td style="text-align: center"></td>
+                  {{/if}}
                   <td style="text-align: center">{{ numero }}</td>
                   <td style="text-align: center">{{ posicao }}</td>
                   <td style="text-align: center">0</td>
@@ -73,7 +86,8 @@
             <table class="table table-striped m-b-none" >
               <thead>
                 <tr>
-                  <th width="60%">Medios</th>
+                  <th width="55%">Medios</th>
+                  <th width="5%">Reforço</th>
                   <th width="5%" style="text-align: center">Numero</th>
                   <th width="5%" style="text-align: center">Posicao</th>
                   <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
@@ -87,8 +101,13 @@
                 {{#each medios }}
                 <tr>
                   <td>
-                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                    <img src="{{foto}}" alt="John said" class="img-circle" style="width: 40px; height: 40px;"> {{ nome }}
                   </td>
+                  {{#if reforco }}
+                    <td style="text-align: center; color: red;"><i class="fa fa-check"></i></td>
+                  {{else}}
+                    <td style="text-align: center"></td>
+                  {{/if}}
                   <td style="text-align: center">{{ numero }}</td>
                   <td style="text-align: center">{{ posicao }}</td>
                   <td style="text-align: center">0</td>
@@ -103,7 +122,8 @@
             <table class="table table-striped m-b-none" >
               <thead>
                 <tr>
-                  <th width="60%">Avancados</th>
+                  <th width="55%">Avancados</th>
+                  <th width="5%">Reforço</th>
                   <th width="5%" style="text-align: center">Numero</th>
                   <th width="5%" style="text-align: center">Posicao</th>
                   <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
@@ -117,8 +137,13 @@
                 {{#each avancados }}
                 <tr>
                   <td>
-                    <img src="../images/avatar.jpg" alt="John said" class="img-circle" style="width: 20px;"> {{ nome }}
+                    <img src="{{foto}}" alt="John said" class="img-circle" style="width: 40px; height: 40px;"> {{ nome }}
                   </td>
+                  {{#if reforco }}
+                    <td style="text-align: center; color: red;"><i class="fa fa-check"></i></td>
+                  {{else}}
+                    <td style="text-align: center"></td>
+                  {{/if}}
                   <td style="text-align: center">{{ numero }}</td>
                   <td style="text-align: center">{{ posicao }}</td>
                   <td style="text-align: center">0</td>
@@ -141,6 +166,17 @@
       <div class="wrapper">
         <h4 class="m-t-none">Jogador</h4>
         <form>
+          <div class="form-group" style="text-align: center">
+            <a href="#" data-toggle="modal" data-target="#change-profile">
+              <div id="profile-result">
+                <img src="../images/avatar_default.jpg" alt="" class="thumb-lg img-circle">    
+              </div>
+            </a>
+          </div>
+          <div class="form-group">
+            <label>BI</label>
+            <input type="text" id="bi" placeholder="Numero de Documento" class="input-sm form-control">
+          </div>
           <div class="form-group">
             <label>Nome</label>
             <input type="text" id="nome" placeholder="Nome do Jogador" class="input-sm form-control">
@@ -177,6 +213,13 @@
                 <option value="SA">Segundo Avancado</option>
               </select>
           </div>
+          <div class="form-group">
+            <label>Reforço</label>
+              <select id="reforco" class="form-control m-b">
+                <option value="Local">Local</option>
+                <option value="Reforco">Reforço</option>
+              </select>
+          </div>
           <input type="hidden" id="idEquipe" value="{{ id }}">
           <div class="m-t-lg"><button id="btnAdicionar" class="btn btn-sm btn-default">Adicionar</button></div>
         </form>
@@ -189,3 +232,31 @@
 {{!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> --}}
 <script src="../js/app/equipe/plantel.js"></script>
+
+<div class="modal fade" id="change-profile">
+  <div class="modal-dialog">
+    <div class="" style="background: #fff;padding: 10px;">
+
+      <div class="ajax-response" id="loading"></div>
+
+      <h4 class="m-t-5 m-b-5 ellipsis">Change profile</h4>
+      <div class="profile-pic-wraper col-sm-8">
+        <img src="../images/avatar_default.jpg" alt="" id="change-profile-pic" style="width: 40%;">
+      </div>
+
+      <div class="priview-wraper">
+        <div class="preview"></div>
+      </div><br>
+      <div>
+        <form action="" enctype="multipart/form-data">
+          <input type="file" accept="image/*" id="profile-file-input">
+          <div style="position: absolute;right: 20px;bottom: 20px;">
+            <button href="#" class="btn btn-primary " data-dismiss="modal" style="background: #8fcb62;">Close</button>
+            <input type="button" value="Save" class="btn btn-primary" id="save-profile">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

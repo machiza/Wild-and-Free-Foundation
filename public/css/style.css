@@ -1339,11 +1339,11 @@ input.gols[disabled]{
 }
 
 
-a.btn, button.btn{
+/* a.btn, button.btn{
     padding: 6px 12px;
     font-size: 14px;
     margin-right: 3px;
-}
+} */
 
 
 a.btn-minimo, button.btn-minimo{
@@ -2371,3 +2371,7 @@ form .radio p.text-muted{
 	
 	
 }
+
+
+/* Cliente */
+

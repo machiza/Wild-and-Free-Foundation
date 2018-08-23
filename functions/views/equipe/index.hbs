@@ -28,7 +28,7 @@
               <th width="10%">SIGLA</th>
               <th width="35%">NOME</th>
               <th width="25%">DELEGADO</th>
-              <th width="10%">PLANTEL</th>
+              <th width="10%" >PLANTEL</th>
               <th width="15%" style="text-align: center">AÇÕES</th>
             </tr>
           </thead>
@@ -39,7 +39,7 @@
                 <td>{{ sigla }}</td>
                 <td>{{ nome }}</td>
                 <td>{{ delegado.nome }}</td>
-                <td style="text-align: center"><a href="/plantel/{{ id }}"><i class="fa fa-external-link"></a></td>
+                <td><a href="/plantel/{{ id }}"><span class="label bg-primary">Plantel <i class="fa fa-calendar"></i></span></a></td>
                 <td style="text-align: center">
                   <a href="/equipe/{{ id }}" class="btn btn-sm btn-icon btn-info"><i class="fa fa-edit"></i></a>
                   <a href="#" class="btn btn-sm btn-icon btn-success"><i class="fa fa-search"></i></a>

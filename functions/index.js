@@ -28,7 +28,8 @@ const app = express();
 
 exphbs.create({
     helpers: {
-        posicao: function(index) { return index + 1; }
+        posicao: function(index) { return index + 1; },
+        reforco: function(ref) { if(ref==='false'){ return false}else{ return true } }
     }
 });
 
@@ -43,9 +44,14 @@ app.get('/login', (req, res) => {
     res.render('login/index', { layout: false });
 });
 
+app.get('/admin', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    res.render('admin/index');
+});
+
 app.get('/', (req, res) => {
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-    res.render('index');
+    res.render('index', {  layout: false});
 });
 
 // index
@@ -169,9 +175,9 @@ app.get('/plantel/:id', (req, res) => {
                         guardaredes.push(jogador);
                     }
                 });
-                res.render('equipe/plantel', { id: req.params.id, guardaredes, defesas, medios, avancados });
+                res.render('equipe/plantel', { id: req.params.id, equipe: doc.data().nome, guardaredes, defesas, medios, avancados });
             }else {
-                res.render('equipe/plantel');
+                res.render('equipe/plantel', { equipe: doc.data().nome});
             }
             
         }
@@ -209,6 +215,42 @@ app.get('/campeonato/calendario', (req, res) => {
             });
         });
         res.render('campeonato/calendario', { jornadas });
+    });
+});
+
+// gerar segunda volta
+app.post('/segundavolta', (req, res) => {
+    var jornadas = [];
+    var jornadasAux = [];
+    var jogos = [];
+    // Get a new write batch
+    var batch = db.batch();
+    db.collection('jornadas').orderBy('chave', 'asc').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            jornadas.push(doc.data());
+        });
+        var k = 12;
+        for (var i=0; i<jornadas.length; i++) {
+            for (var j=0; j<6; j++) {
+                var fora = jornadas[i].jogos[j].casa;
+                var casa = jornadas[i].jogos[j].fora;
+                var data = jornadas[i].jogos[j].data;
+                jogos.push({ casa, fora, data, jornada: k, feito: false});
+            }
+            var jornada = k+'° Jornada';
+            // jornadasAux.push({ chave: k, jogos });
+            var nycRef = db.collection('jornadas').doc(jornada);
+            batch.set(nycRef, { chave: k, jogos });
+            jogos = [];
+            k++;
+        }
+
+        // Commit the batch
+        return batch.commit().then(function () {
+            // ...
+        });
+        
+        res.end('successfully');
     });
 });
 
