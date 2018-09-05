@@ -12,7 +12,7 @@
               
                 <section class="panel panel-default">
                   
-                  <header class="panel-heading bg-danger lt no-border" style="text-align: center">
+                  <header class="panel-heading bg-primary lt no-border" style="text-align: center">
                     {{ numero }}
                   </header>
                   <div class="row partida">
@@ -20,24 +20,14 @@
                     {{#if casa.id}}
                     <div class="row">
                       <div class="col-md-4 col-xs-4 equipe-casa">
-                        <span class="hidden-xs-down" id="{{jornada}}{{@index}}casaN">
+                        <span class="hidden-xs-down">
                           {{casa.nome}} <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
                         </span>
                       </div>
                       <div class="col-md-4 col-xs-4 placar">
                         {{#if feito}}
-                         {{#if comparencia}}
-                          <input type="tel" class="gols" disabled="disabled" value="F" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
-                          <input type="tel" class="gols" disabled="disabled" value="C" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
-                         {{else if mesa}}
-                          <input type="hidden" class="gols" disabled="disabled" value="{{casa.mesa}}" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
-                          <input type="hidden" class="gols" disabled="disabled" value="{{fora.mesa}}" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
-                          <input type="tel" class="gols" disabled="disabled" value="M" size="3" onkeyup>
-                          <input type="tel" class="gols" disabled="disabled" value="S" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
-                         {{else}}
-                          <input type="tel" class="gols" disabled="disabled" value="{{casa.golos}}" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
-                          <input type="tel" class="gols" disabled="disabled" value="{{fora.golos}}" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
-                         {{/if}}
+                          <input type="tel" class="gols" value="{{casa.golos}}" id="{{jornada}}{{@index}}casa" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
+                          <input type="tel" class="gols" value="{{fora.golos}}" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
                         {{else}}
                           <input type="tel" class="gols" id="{{jornada}}{{@index}}casa" size="3" onkeyup>
                           <input type="tel" class="gols" id="{{jornada}}{{@index}}fora" size="3" onkeyup="myFunction('{{jornada}}{{@index}}botao')">
@@ -48,7 +38,7 @@
                         </button>
                       </div>
                       <div class="col-md-4 col-xs-4 equipe-fora">
-                        <span class="hidden-xs-down" id="{{jornada}}{{@index}}foraN">
+                        <span class="hidden-xs-down">
                           <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
                           {{fora.nome}}
                         </span>
@@ -75,22 +65,6 @@
   $('#campeonato').addClass('active');
 
   $('button').hide();
-
-  for(var i = 1; i < 23; i++) {
-    for(var j = 0; j < 6; j++) {
-    var casa = '#'+i+''+j+'casa';
-    var fora = '#'+i+''+j+'fora';
-    var casaNome = '#'+i+''+j+'casaN';
-    var foraNome= '#'+i+''+j+'foraN';
-      if($(casa).val() > $(fora).val()) {
-        $(casaNome).css("color", "green");
-        $(foraNome).css("color", "red");
-      } else if ($(casa).val() < $(fora).val()) {
-        $(casaNome).css("color", "red");
-        $(foraNome).css("color", "green");
-      }
-    }
-  }
 
   function myFunction(idButton) {
     var botao = '#'+idButton;
@@ -137,7 +111,7 @@
 
     $.ajax({
       type: 'POST',
-      url: '/campeonato/calendario',
+      url: '/campeonato/editar',
       data: { 
         casa, casaPontos, casaVitorias, casaEmpates, casaDerrotas, casaGol,
         fora, foraPontos, foraVitorias, foraEmpates, foraDerrotas, foraGol, jornada, index

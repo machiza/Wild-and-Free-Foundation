@@ -51,7 +51,37 @@ app.get('/admin', (req, res) => {
 
 app.get('/', (req, res) => {
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-    res.render('index', {  layout: false});
+    var equipeRef = db.collection('equipes').orderBy('classificacao.pontos', 'desc');
+    var equipes = []; var equipes2 = [];
+    db.runTransaction(t => {
+        return t.get(equipeRef)
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    equipes.push({
+                        id: doc.id,
+                        classificacao: doc.data().classificacao,
+                        delegado: doc.data().delegado,
+                        emblema: doc.data().emblema,
+                        jogadores: doc.data().jogadores,
+                        nome: doc.data().nome,
+                        sigla: doc.data().sigla
+                    });
+                });
+                var idJornada = 1+equipes[0].classificacao.jornadas+'° Jornada'
+                var jornadaRef = db.collection('jornadas').doc(idJornada);
+                for (var i =0; i<equipes.length/2; i++) {
+                    equipes2.push(equipes[i]);
+                }
+                db.runTransaction(tr => {
+                    return tr.get(jornadaRef)
+                        .then(doc => {
+                            res.render('index', { layout: false, helpers: { posicao: function(index) { return index + 1; } }, equipes2, jornada: doc.data(), idJornada });
+                        });
+                });
+                
+                
+            });
+    });
 });
 
 // index
@@ -201,7 +231,7 @@ app.post('/plantel', (req, res) => {
 
 // ------------------ campeonato--------------------
 
-// ------------------ calendario---------------------
+// ------------------ Resultado ---------------------
 
 // index
 app.get('/campeonato/calendario', (req, res) => {
@@ -267,6 +297,7 @@ var equipeForaRef = db.collection('equipes').doc(req.body.fora);
           largerArray[index].fora.golos = parseInt(req.body.foraGol);
           largerArray[index].feito = true;
           transaction.update(docRef, 'jogos', largerArray);
+
         });
       });
       
@@ -311,6 +342,231 @@ var equipeForaRef = db.collection('equipes').doc(req.body.fora);
     res.end('successfully');
 })
 
+// update
+app.post('/campeonato/editar', (req, res) => {
+    var index = req.body.index;
+    var docRef = db.collection('jornadas').doc(req.body.jornada);
+    var equipeCasaRef = db.collection('equipes').doc(req.body.casa);
+    var equipeForaRef = db.collection('equipes').doc(req.body.fora);
+
+    var pontosCasa = 0; var golosCasa = 0; var golosCasaMenos = 0; var sofridosCasaMenos = 0; var vitoriasCasa = 0; var empatesCasa = 0; var derrotasCasa = 0;
+    var pontosFora = 0; var golosFora = 0; var golosForaMenos = 0; var sofridosForaMenos = 0; var vitoriasFora = 0; var empatesFora = 0; var derrotasFora = 0;
+
+        db.runTransaction(transaction => {
+            return transaction.get(docRef).then(snapshot => {
+              const largerArray = snapshot.get('jogos');
+              if(largerArray[index].casa.golos > largerArray[index].fora.golos) {
+                  if(parseInt(req.body.casaVitorias) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  } else if (parseInt(req.body.casaDerrotas) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    derrotasCasa = 1;
+                    vitoriasCasa = -1;
+                    pontosCasa = -3;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    derrotasFora = -1;
+                    vitoriasFora = 1;
+                    pontosFora = 3;
+
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  } else if (parseInt(req.body.casaEmpates) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    empatesCasa = 1;
+                    vitoriasCasa = -1;
+                    pontosCasa = -2;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    empatesFora = 1;
+                    derrotasFora = -1;
+                    pontosFora = 1;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  }
+              } else if (largerArray[index].casa.golos < largerArray[index].fora.golos) {
+                if(parseInt(req.body.foraVitorias) > 0) {
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  } else if (parseInt(req.body.foraDerrotas) > 0) {
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    derrotasFora = 1;
+                    vitoriasFora = -1;
+                    pontosFora = -3;
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    derrotasCasa = -1;
+                    vitoriasCasa = 1;
+                    pontosCasa = 3;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+
+                  } else if (parseInt(req.body.foraEmpates) > 0) {
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    empatesFora = 1;
+                    vitoriasFora = -1;
+                    pontosFora = -2;
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    empatesCasa = 1;
+                    derrotasCasa = -1;
+                    pontosCasa = 1;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  }
+              } else if (largerArray[index].casa.golos === largerArray[index].fora.golos) {
+                if(parseInt(req.body.casaVitorias) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    empatesCasa = -1;
+                    vitoriasCasa = 1;
+                    pontosCasa = 2;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    empatesFora = -1;
+                    derrotasFora = 1;
+                    pontosFora = -1;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  } else if (parseInt(req.body.casaDerrotas) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    empatesCasa = -1;
+                    derrotasCasa = 1;
+                    pontosCasa = -1;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+                    empatesFora = -1;
+                    vitoriasFora = 1;
+                    pontosFora = 2;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  } else if (parseInt(req.body.casaEmpates) > 0) {
+                    golosCasa = parseInt(req.body.casaGol);
+                    golosCasaMenos = largerArray[index].casa.golos;
+                    sofridosCasaMenos = largerArray[index].fora.golos;
+                    golosFora = parseInt(req.body.foraGol);
+                    golosForaMenos = largerArray[index].fora.golos;
+                    sofridosForaMenos = largerArray[index].casa.golos;
+
+                    largerArray[index].casa.golos = parseInt(req.body.casaGol);
+                    largerArray[index].fora.golos = parseInt(req.body.foraGol);
+                    largerArray[index].feito = true;
+                    transaction.update(docRef, 'jogos', largerArray);
+                  }
+              }
+            });
+          });
+          
+        db.runTransaction(t => {
+        return t.get(equipeCasaRef)
+            .then(doc => {
+                // Add one person to the city population
+                var newPontos = doc.data().classificacao.pontos + pontosCasa;
+                var newJornadas = doc.data().classificacao.jornadas + 0;
+                var newVitorias = doc.data().classificacao.vitorias + vitoriasCasa;
+                var newEmpates = doc.data().classificacao.empates + empatesCasa;
+                var newDerrotas = doc.data().classificacao.derrotas + derrotasCasa;
+                var newGm = (doc.data().classificacao.gm - golosCasaMenos) + golosCasa;
+                var newGs = (doc.data().classificacao.gs - sofridosCasaMenos) + golosFora;
+                var newSg = newGm - newGs;
+                t.update(equipeCasaRef, { 
+                    classificacao :{ pontos: newPontos, jornadas: newJornadas, vitorias: newVitorias, empates: newEmpates,
+                    derrotas: newDerrotas, gm: newGm, gs: newGs, sg: newSg }
+                });
+            });
+        });
+    
+        db.runTransaction(t => {
+            return t.get(equipeForaRef)
+                .then(doc => {
+                    // Add one person to the city population
+                    var newPntos = doc.data().classificacao.pontos + pontosFora;
+                    var newJornadas = doc.data().classificacao.jornadas + 0;
+                    var newVitorias = doc.data().classificacao.vitorias + vitoriasFora;
+                    var newEmpates = doc.data().classificacao.empates + empatesFora;
+                    var newDerrotas = doc.data().classificacao.derrotas + derrotasFora;
+                    var newGm = (doc.data().classificacao.gm - golosForaMenos) + golosFora;
+                    var newGs = (doc.data().classificacao.gs - sofridosForaMenos) + golosCasa;
+                    var newSg = newGm - newGs;
+                    t.update(equipeForaRef, { 
+                        classificacao: { pontos: newPntos, jornadas: newJornadas, vitorias: newVitorias, empates: newEmpates,
+                        derrotas: newDerrotas, gm: newGm, gs: newGs, sg: newSg}
+                    });
+                });
+            });
+    
+        res.end('successfully');
+    })
+
+// edit
+app.get('/campeonato/editar', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var jornadas = [];
+    db.collection('jornadas').orderBy('chave').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            jornadas.push({
+                numero: doc.id,
+                jogos: doc.data().jogos,
+            });
+        });
+        res.render('campeonato/editar', { jornadas });
+    });
+});
+
 // ------------------ classificacao --------------------
 // index
 app.get('/campeonato/classificacao', (req, res) => {
@@ -321,6 +577,82 @@ app.get('/campeonato/classificacao', (req, res) => {
             equipes.push(doc.data());
         });
         res.render('campeonato/classificacao', { equipes, helpers: { posicao: function(index) { return index + 1; } } });
+    });
+});
+
+
+// -------------- Cliente Campeonato ----------------------
+app.get('/campeonato', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var equipes = [];
+    var jornadas = [];
+    db.collection('equipes').orderBy('classificacao.pontos', 'desc').get().then(snapshot => {
+        snapshot.forEach(doc => {
+            equipes.push({
+                id: doc.id,
+                classificacao: doc.data().classificacao,
+                delegado: doc.data().delegado,
+                emblema: doc.data().emblema,
+                jogadores: doc.data().jogadores,
+                nome: doc.data().nome,
+                sigla: doc.data().sigla
+            });
+        });
+        db.collection('jornadas').orderBy('chave').get().then(snapshot => {
+            snapshot.forEach(doc => {
+                jornadas.push({
+                    numero: doc.id,
+                    jogos: doc.data().jogos,
+                });
+            });
+            res.render('cliente/campeonato', { layout: false, equipes, jornadas, helpers: { posicao: function(index) { return index + 1; } } });
+        });
+        // res.render('cliente/campeonato', { layout: false, equipes, helpers: { posicao: function(index) { return index + 1; } } });
+    });
+    // res.render('cliente/campeonato', { layout: false });
+});
+
+app.get('/clube/:id', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var equipeRef = db.collection('equipes').doc(req.params.id);
+    
+    db.runTransaction(t => {
+        return t.get(equipeRef)
+            .then(doc => {
+                var equipe = {
+                    classificacao: doc.data().classificacao,
+                    completo: doc.data().completo,
+                    data: doc.data().data,
+                    delegado: doc.data().delegado,
+                    emblema: doc.data().emblema,
+                    jogadores: doc.data().jogadores,
+                    nome: doc.data().nome,
+                    sigla: doc.data().sigla
+                }
+                equipe.jogadores.forEach(jogador => {
+                    jogador.clubeId = doc.id;
+                });
+                res.render('cliente/equipe', { layout: false, equipe });
+            });
+    })
+});
+
+app.get('/jogador/:id', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    var equipeRef = db.collection('equipes').doc(req.params.id);
+    
+    db.runTransaction(t => {
+        return t.get(equipeRef)
+            .then(doc => {
+                var equipe = {
+                    emblema: doc.data().emblema,
+                    jogadores: doc.data().jogadores,
+                    nome: doc.data().nome,
+                    sigla: doc.data().sigla
+                }
+                var jogador = equipe.jogadores[req.params.index];
+                res.render('cliente/jogador', { layout: false, equipe, jogador });
+            });
     });
 });
 

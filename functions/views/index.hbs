@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WFF</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WFF</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    
-    <link href="../css/cliente.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css" rel="stylesheet">
+  
+  <link href="../css/cliente.css" rel="stylesheet">
 
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script>
@@ -29,46 +34,45 @@
 <body>
 
   <!-- Second navbar for sign in -->
-    <nav class="navbar navbar-default" style="background-color:#6fbec5;">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a style="color: #ffffff; " class="navbar-brand" href="/"><img alt="Brand" src="../images/rhino1.png" style="width: 120px; margin-top: -8px;"></a>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-2">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" style="color: #ffffff">Home</a></li>
-            <li><a href="#" style="color: #ffffff">Campeonato</a></li>
-            <li><a href="#" style="color: #ffffff">News</a></li>
-            <li><a href="#" style="color: #ffffff">Ajuda</a></li>
-            <li>
-              <a style="color: #ffffff" class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
-            </li>
-          </ul>
-          <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2" style="background-color:#6fbec5;">
-            <div class="navbar-form navbar-right form-inline" role="form">
-              <div class="form-group">
-                <label class="sr-only" for="Email">Email</label>
-                <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
-              </div>
-              <div class="form-group">
-                <label class="sr-only" for="Password">Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Password" required />
-              </div>
-              <button id="btnLogin" class="btn btn-success">Sign in</button>
+  <nav class="navbar navbar-default" style="background-color:#6fbec5;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a style="color: #ffffff; " class="navbar-brand" href="/"><img alt="Brand" src="../images/rhino1.png" style="width: 120px; margin-top: -8px;"></a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-2">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/" style="color: #ffffff">Home</a></li>
+          <li><a href="/campeonato" style="color: #ffffff">Campeonato</a></li>
+          <li><a href="#" style="color: #ffffff">Ajuda</a></li>
+          <li>
+            <a style="color: #ffffff" class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Login</a>
+          </li>
+        </ul>
+        <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2" style="background-color:#6fbec5;">
+          <div class="navbar-form navbar-right form-inline" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
             </div>
+            <div class="form-group">
+              <label class="sr-only" for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" placeholder="Password" required />
+            </div>
+            <button id="btnLogin" class="btn btn-success">Login</button>
           </div>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav><!-- /.navbar -->
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
 
   <div class="container">
 
@@ -87,19 +91,19 @@
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active carousel-image">
-                  <img src="../images/primeira.jpg" alt="...">
+                  <img src="../images/slide01.jpg" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
                 </div>
                 <div class="item carousel-image">
-                  <img src="../images/segunda1.jpg" alt="...">
+                  <img src="../images/slide2.jpg" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
                 </div>
                 <div class="item carousel-image">
-                  <img src="../images/terceira.jpg" alt="...">
+                  <img src="../images/slide3.jpg" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
@@ -118,97 +122,281 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        {{!-- <div class="panel panel-info">
-          <div class="panel-heading">
-          <h3 class="panel-title">The Rhino Cup 2018</h3>
-        </div>
-        <div class="panel-body">
-          Os rinocerontes da África do Sul estão a ser escalfados para os seus chifres em números
-           sem precedentes. Com o Parque Nacional Kruger na fronteira de Moçambique - um dos 
-           países mais pobres do mundo, os aldeões locais são atraídos para matar o rinoceronte ' s.
-          Mas as coisas estão a mudar. Uma liga de futebol foi criada na região, para ajudar a elevar
-           as comunidades - o Rhino Cup Champions League. Em uma área de imensa pobreza, sem 
-           emprego e pouca comida, os mundos maior jogo, o futebol está trazendo as pessoas 
-           juntas e dando esperança para o futuro.
-          O objetivo final - para parar de caçar através do futebol, antes do seu tarde demais.
-        </div>
-        </div> --}}
-        <div class="row">
-          <div class="col-sm-6 col-md-12">
-            <div class="thumbnail">
-              <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://player.vimeo.com/video/274231373" width="640" height="272" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-              </div>
-              <div class="caption">
-                <p>Os rinocerontes da África do Sul estão a ser escalfados para os seus chifres em números sem precedentes. Com o Parque Nacional Kruger na fronteira de Moçambique - um dos países mais pobres do mundo, os aldeões locais são atraídos para matar o rinoceronte ' s.
-                    Mas as coisas estão a mudar. Uma liga de futebol foi criada na região, para ajudar a elevar as comunidades - o Rhino Cup Champions League.Em uma área de imensa pobreza, sem emprego e pouca comida, os mundos maior jogo...</p>
-              </div>
-            </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4">
-         <div class="row">
-          <div class="col-sm-6 col-md-12">
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="../images/inspired.jpg" alt="...">
+              <img src="../images/coup3.jpg" alt="...">
               <div class="caption">
                 {{!-- <h3>Thumbnail label</h3> --}}
                 <p>É tão lindo ver a inspiração e a aspiração que o Rhino Cup Champions League traz para as crianças jovens dentro dessas comunidades.
-                  <br />
-                  <br />
                 </p>
                 {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row">
-          <div class="col-sm-6 col-md-12">
+
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="../images/confidence.jpg" alt="..." >
+              <img src="../images/coup4.jpg" alt="..." >
               <div class="caption">
                 {{!-- <h3>Thumbnail label</h3> --}}
-                <p>Esportes boost auto-estima!
-                  Reduzem a pressão e o stress!
-                  Eles constroem confiança!
-                  Através do Rhino Cup Champions League somos capazes de crescer e desenvolver esses jovens.</p>
+                <p>Você sabia que o aspecto competitivo do futebol ajuda os jogadores a aprender a lidar com a decepção, desenvolver a resiliência.
+                </p>
                 {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row">
-          <div class="col-sm-6 col-md-12">
+
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img src="../images/soccerlife.jpg" alt="..." >
               <div class="caption">
                 {{!-- <h3>Thumbnail label</h3> --}}
                 <p>Você pode acreditar que o round 6 está aqui, veja o horário abaixo. Estamos tão animados para os próximos jogos se chutar
-                  <br /><br />
                 </p>
                 {{!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> --}}
               </div>
             </div>
           </div>
+
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        
+        <ul class="nav nav-tabs nav-justified">
+          <li role="presentation" class="active"><a href="#jornada" aria-controls="jornada" role="tab" data-toggle="tab">Jornada</a></li>
+          <li role="presentation"><a href="#classificacao" aria-controls="classificacao" role="tab" data-toggle="tab">Classificação</a></li>
+          <li role="presentation"><a href="#goleadores" aria-controls="goleadores" role="tab" data-toggle="tab">Goleadores</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="jornada">
+            <section class="panel panel-default panel-calendario1">
+              <header class="panel-heading bg-danger lt no-border" style="text-align: center;background-color: #113157; background: #113157; color: #ffffff; text-shadow: none;">
+                {{ idJornada }}
+              </header>
+            <div class="table-responsive">
+              <table id="cart" class="table m-b-none table-borderless tabela-resultado" >
+                <thead>
+                  <tr>
+                    <th width="44%"></th>
+                    <th width="12%"></th>
+                    <th width="44%"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{!-- <tr><td></td><td></td><td></td></tr>   --}}
+                {{#each jornada.jogos}}
+                {{#if casa.id}}
+                
+                  <tr>
+                    <td style="text-align: right">
+                      <a href="/clube/{{casa.id}}" style="text-align: right">
+                        <span">
+                          {{casa.nome}} <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                        </span>
+                      </a>
+                    </td>
+                    {{#if feito}}
+                    <td style="text-align: center">
+                      <span style="text-align: center">{{casa.golos}}-{{fora.golos}}</span>
+                    </td>
+                    {{else}}
+                    <td>
+                      <span> ------</span>
+                    </td>  
+                    {{/if}}
+                    <td style="text-align: left;">
+                      <a href="/clube/{{fora.id}}" style="text-align: left;">
+                        <span>
+                          <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                          {{fora.nome}}
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                {{/if}}
+                {{/each}}
+                <tr>
+                  <th></th><th></th><th></th>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <span style="padding: 10px; margin-bottom: 10px;">#Apenas Resultados da ultima Jornada</span>
+            </section>
+            
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="classificacao">
+            <section class="panel panel-default panel-calendario1">
+            <div class="table-responsive">
+              <table id="cart" class="table table-striped m-b-none tabela-classificacao" >
+                <thead>
+                  <tr>
+                    <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                  </tr>
+                  <tr style="background-color: #113157; color: #ffffff; text-shadow: none;">
+                    <th width="3%"></th>
+                    <th width="57%">Equipe</th>
+                    <th width="5%" style="text-align: center">Pts</th>
+                    <th width="5%" style="text-align: center">J</th>
+                    <th width="5%" style="text-align: center">V</th>
+                    <th width="5%" style="text-align: center">E</th>
+                    <th width="5%" style="text-align: center">D</th>
+                    <th width="5%" style="text-align: center">GM</th>
+                    <th width="5%" style="text-align: center">GS</th>
+                    <th width="5%" style="text-align: center">SG</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each equipes2 }}
+                    <tr class="item">
+                      <td class="dorsal">
+                        <span class="card divpos2" style="min-width: 20px;">{{posicao @index}}</span>
+                      </td>
+                      <td>
+                        <img src="../images/shield.jpg" alt="John said" class="img-circle" style="width: 23px;"><a href="/clube/{{id}}"> {{ sigla }}</a>
+                      </td>
+                      <td style="text-align: center; font-weight: bold;">{{classificacao.pontos}}</td>
+                      <td style="text-align: center">{{classificacao.jornadas}}</td>
+                      <td style="text-align: center">{{classificacao.vitorias}}</td>
+                      <td style="text-align: center">{{classificacao.empates}}</td>
+                      <td style="text-align: center">{{classificacao.derrotas}}</td>
+                      <td style="text-align: center">{{classificacao.gm}}</td>
+                      <td style="text-align: center">{{classificacao.gs}}</td>
+                      <td style="text-align: center">{{classificacao.sg}}</td>
+                    </tr>
+                  {{/each}}
+                  <tr>
+                    <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                  </tr>
+                  <tr>
+                    <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </section>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="goleadores">
+
+            <div id="carousel-teste" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <section class="panel panel-default panel-calendario1">
+                    <div class="table-responsive">
+                      <table id="cart" class="table table-striped m-b-none tabela-classificacao" >
+                        <thead>
+                          <tr>
+                            <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                          </tr>
+                          <tr style="background-color: #113157; color: #ffffff; text-shadow: none;">
+                            <th width="3%"></th>
+                            <th width="57%">Equipe</th>
+                            <th width="5%" style="text-align: center">Pts</th>
+                            <th width="5%" style="text-align: center">J</th>
+                            <th width="5%" style="text-align: center">V</th>
+                            <th width="5%" style="text-align: center">E</th>
+                            <th width="5%" style="text-align: center">D</th>
+                            <th width="5%" style="text-align: center">GM</th>
+                            <th width="5%" style="text-align: center">GS</th>
+                            <th width="5%" style="text-align: center">SG</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{#each equipes2 }}
+                            <tr class="item">
+                              <td class="dorsal">
+                                <span class="card divpos2" style="min-width: 20px;">{{posicao @index}}</span>
+                              </td>
+                              <td>
+                                <img src="../images/shield.jpg" alt="John said" class="img-circle" style="width: 23px; height: 23px;"><a href="/clube/{{id}}"> {{ sigla }}</a>
+                              </td>
+                              <td style="text-align: center; font-weight: bold;">{{classificacao.pontos}}</td>
+                              <td style="text-align: center">{{classificacao.jornadas}}</td>
+                              <td style="text-align: center">{{classificacao.vitorias}}</td>
+                              <td style="text-align: center">{{classificacao.empates}}</td>
+                              <td style="text-align: center">{{classificacao.derrotas}}</td>
+                              <td style="text-align: center">{{classificacao.gm}}</td>
+                              <td style="text-align: center">{{classificacao.gs}}</td>
+                              <td style="text-align: center">{{classificacao.sg}}</td>
+                            </tr>
+                          {{/each}}
+                          <tr>
+                            <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                          </tr>
+                          <tr>
+                            <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                </div>
+                <div class="item">
+                  <img src="..." alt="...">
+                  <div class="carousel-caption">
+                    ...
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-teste" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-teste" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-sm-6 col-md-12">
+          <div class="thumbnail">
+            <img src="../images/rhino.jpg" alt="...">
+            <div class="caption">
+              {{!-- <h3>Thumbnail label</h3> --}}
+              <p>Rhinos need to be protected by anti poaching rangers, but they're only half of the solution. The other half is to empower the communities that complete the picture. More about our community project: https://goo.gl/RfhqSJ</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      </div>
     </div>
-   
 
     
-
+    
   </div><!-- /.container-fluid -->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small" style="background-color: #6fbec5">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="#"> Armando Machiza & Felizardo Cossa</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
     
   <script src="../js/jquery.min.js"></script>
   <script>
@@ -236,6 +424,19 @@
       } else {
         console.log('not logged in');
       }
+    });
+
+    $('#jornada a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    $('#classificacao a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    $('#goleadores a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
     });
   </script>
 

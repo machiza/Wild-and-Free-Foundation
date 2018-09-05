@@ -3,6 +3,21 @@ Code snippet by maridlcrmn for Bootsnipp.com
 Follow me on Twitter @maridlcrmn
 */
 
+/* palette scheme: http://colorschemedesigner.com/#0032dllpBw0w0 */
+@font-face {
+	font-family: JudasPriest;
+	src: url('../fonts/JudasPriest.ttf');
+}
+
+.principal {
+    font-family: Helvetica, Tahoma, sans-serif;
+    color: #113157;
+    font-size: 100%; /* 100% = 16px */
+    line-height: 1.5em;
+    background-color: #f5f5f0;
+    margin-top: -20px;
+}
+
 .navbar-brand { position: relative; z-index: 2; }
 
 .navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
@@ -31,13 +46,95 @@ Follow me on Twitter @maridlcrmn
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
     .carousel .carousel-inner img {
         width: 100%; 
-        height: 450px;
+        height: 370px;
     }
 
-    .thumbnail img {
+    .boss {
+        background-color: #6fbec5;
+    }
+
+    /* .thumbnail img {
         width: 100%;
         height: 300px;
+    } */
+}
+
+#header-container  {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#header {
+    display: inline-block;
+}
+
+.logo {
+    font-family: JudasPriest;
+    text-shadow: 0.1em 0.1em 0.1em #ddf;
+	font-size: 3em;
+	color: #851616;
+}
+
+.tab-pane {
+    background-color: #ffffff;
+}
+
+.panel {
+    font-family: Helvetica, Tahoma, sans-serif;
+    color: #113157; /* #333344; */
+	font-size: 12px; /* 100% = 16px */
+	text-shadow: 0.1em 0.1em 0.1em #ddf;
+	line-height: 1.5em;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .panel-classificacao {
+        margin: 20px;
     }
+    
+    .panel-calendario {
+        margin: 5px;
+    }
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+.panel-calendario1 {
+    
+}
+
+.panel-calendario {
+    margin-top: 10px;
+}
+
+.tabela-classificacao {
+    font-family: Helvetica, Tahoma, sans-serif;
+    color: #000; /* #333344; */
+	font-size: 13px; /* 100% = 16px */
+	text-shadow: 0.1em 0.1em 0.1em #ddf;
+	line-height: 1.5em;
+}
+
+.tabela-resultado {
+    font-family: Helvetica, Tahoma, sans-serif;
+    color: #000; /* #333344; */
+	font-size: 13px; /* 100% = 16px */
+	text-shadow: 0.1em 0.1em 0.1em #ddf;
+	line-height: 1.5em;
+}
+
+.footer-copyright {
+    padding: 64px;
+    text-align: center;
 }

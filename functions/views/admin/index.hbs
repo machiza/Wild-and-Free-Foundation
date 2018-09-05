@@ -3,5 +3,16 @@
 <script src="../js/jquery.min.js"></script>
 <script>
     
+    $('#gerar').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/segundavolta',
+            data: { texto: 'segunda volta' },
+            success: function(data) {
+                alert(data);
+            }
+        });
+    });
+
 </script>
 <script src="../js/app/main/script.js"></script>

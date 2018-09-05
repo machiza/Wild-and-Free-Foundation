@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WFF</title>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css" rel="stylesheet">
+  
+  <link href="../css/cliente.css" rel="stylesheet">
+
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBL1Z0xIrNTaojvv4Xc2ZvhpuE-pk6JXWM",
+        authDomain: "wild-and-free-foundation.firebaseapp.com",
+        databaseURL: "https://wild-and-free-foundation.firebaseio.com",
+        projectId: "wild-and-free-foundation",
+        storageBucket: "wild-and-free-foundation.appspot.com",
+        messagingSenderId: "753693107985"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+<body>
+
+  <!-- Second navbar for sign in -->
+  <nav class="navbar navbar-default" style="background-color:#6fbec5;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a style="color: #ffffff; " class="navbar-brand" href="/"><img alt="Brand" src="../images/rhino1.png" style="width: 120px; margin-top: -8px;"></a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-2">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/" style="color: #ffffff">Home</a></li>
+          <li><a href="/campeonato" style="color: #ffffff">Campeonato</a></li>
+          <li><a href="#" style="color: #ffffff">Ajuda</a></li>
+          <li>
+            <a style="color: #ffffff" class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Login</a>
+          </li>
+        </ul>
+        <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2" style="background-color:#6fbec5;">
+          <div class="navbar-form navbar-right form-inline" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" placeholder="Password" required />
+            </div>
+            <button id="btnLogin" class="btn btn-success">Login</button>
+          </div>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+
+  <div class="container principal">
+
+    
+    <div id="header-container">
+      <div id="header">
+        <span class="logo">Rhino Cup Champions League</span><br /><br />
+      </div>
+    </div>
+
+    <div class="row' id="content" style="background-color: #ffffff;">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active" id="classificacao"><a href="#class" style="font-size: 12px;">Classificação</a></li>
+          <li role="presentation" id="calendario"><a href="#cal" style="font-size: 12px;">Calendario</a></li>
+          <li role="presentation" id="estatistica"><a href="#est" style="font-size: 12px;">Estatísticas</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="class">
+            <div class="row">
+              <div class="col-md-12">
+                <section class="panel panel-default panel-classificacao">
+                  <div class="table-responsive">
+                    <table id="cart" class="table table-striped m-b-none" >
+                      <thead>
+                        <tr style="background-color: #113157; color: #ffffff; text-shadow: none;">
+                          <th width="3%"></th>
+                          <th width="57%">Equipe</th>
+                          <th width="5%" style="text-align: center">Pts</th>
+                          <th width="5%" style="text-align: center">J</th>
+                          <th width="5%" style="text-align: center">V</th>
+                          <th width="5%" style="text-align: center">E</th>
+                          <th width="5%" style="text-align: center">D</th>
+                          <th width="5%" style="text-align: center">GM</th>
+                          <th width="5%" style="text-align: center">GS</th>
+                          <th width="5%" style="text-align: center">SG</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each equipes }}
+                          <tr class="item">
+                            <td class="dorsal">
+                              <span class="card divpos2" style="min-width: 20px;">{{posicao @index}}</span>
+                            </td>
+                            <td>
+                              <img src="../images/shield.jpg" alt="John said" class="img-circle" style="width: 23px;"><a href="/clube/{{id}}"> {{ nome }}</a>
+                            </td>
+                            <td style="text-align: center; font-weight: bold;">{{classificacao.pontos}}</td>
+                            <td style="text-align: center">{{classificacao.jornadas}}</td>
+                            <td style="text-align: center">{{classificacao.vitorias}}</td>
+                            <td style="text-align: center">{{classificacao.empates}}</td>
+                            <td style="text-align: center">{{classificacao.derrotas}}</td>
+                            <td style="text-align: center">{{classificacao.gm}}</td>
+                            <td style="text-align: center">{{classificacao.gs}}</td>
+                            <td style="text-align: center">{{classificacao.sg}}</td>
+                          </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="cal">
+            <section class="scrollable wrapper ">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    {{#each jornadas }}
+                    <div class="col-md-4">
+
+                      <section class="panel panel-default panel-calendario">
+                        <header class="panel-heading bg-danger lt no-border" style="text-align: center;background-color: #5cb85c; color: #ffffff; text-shadow: none;">
+                          {{ numero }}
+                        </header>
+                        <div class="table-responsive">
+                          <table id="cart" class="table m-b-none table-borderless" >
+                            <thead>
+                              <tr>
+                                <th width="44%"></th>
+                                <th width="12%"></th>
+                                <th width="44%"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {{#each jogos}}
+                            {{#if casa.id}}
+                              <tr>
+                                <td style="text-align: right">
+                                  <a href="/clube/{{casa.id}}" style="text-align: right">
+                                    <span" id="{{jornada}}{{@index}}casaN">
+                                      {{casa.nome}} <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                                    </span>
+                                  </a>
+                                </td>
+                                {{#if feito}}
+                                  {{#if comparencia}}
+                                    <td style="text-align: center">
+                                      <input type="hidden" id="{{jornada}}{{@index}}casa" value="F" >
+                                      <input type="hidden" id="{{jornada}}{{@index}}fora" value="C" >
+                                      <span>fc</span>
+                                    </td>
+                                  {{else if mesa}}
+                                      <td style="text-align: center">
+                                        <input type="hidden" id="{{jornada}}{{@index}}casa" value="{{casa.mesa}}" >
+                                        <input type="hidden" id="{{jornada}}{{@index}}fora" value="{{fora.mesa}}" >
+                                        <span>mesa</span>
+                                    </td>
+                                  {{else}}
+                                    <td style="text-align: center">
+                                      <input type="hidden" id="{{jornada}}{{@index}}casa" value="{{casa.golos}}" >
+                                      <input type="hidden" id="{{jornada}}{{@index}}fora" value="{{fora.golos}}" >
+                                      <span>{{casa.golos}}-{{fora.golos}}</span>
+                                    </td>
+                                  {{/if}}
+                                {{else}}
+                                <td>
+                                  <span style="text-align: center"> ------</span>
+                                </td>  
+                                {{/if}}
+                                <td style="text-align: left;">
+                                  <a href="/clube/{{fora.id}}" style="text-align: left;">
+                                    <span id="{{jornada}}{{@index}}foraN">
+                                      <img src="../images/shield.jpg" alt="John said" style="width: 20px;">
+                                      {{fora.nome}}
+                                    </span>
+                                  </a>
+                                </td>
+                              </tr>
+                            {{/if}}
+                            {{/each}}
+                            <tr>
+                              <th></th><th></th><th></th>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </section>
+
+                    </div>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.container-fluid -->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small" style="background-color: #6fbec5">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="#"> Armando Machiza & Felizardo Cossa</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  
+  <script>
+    for(var i = 1; i < 23; i++) {
+    for(var j = 0; j < 6; j++) {
+    var casa = '#'+i+''+j+'casa';
+    var fora = '#'+i+''+j+'fora';
+    var casaNome = '#'+i+''+j+'casaN';
+    var foraNome= '#'+i+''+j+'foraN';
+      if($(casa).val() > $(fora).val()) {
+        $(casaNome).css("color", "green");
+        $(foraNome).css("color", "red");
+      } else if ($(casa).val() < $(fora).val()) {
+        $(casaNome).css("color", "red");
+        $(foraNome).css("color", "green");
+      }
+    }
+  }
+
+    $('#classificacao a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    $('#calendario a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+    $('#estatistica a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+
+    $('#btnLogin').click(function() {
+      const email = $('#Email').val();
+      const pass = $('#Password').val();
+
+      firebase.auth().signInWithEmailAndPassword(email, pass)
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode === 'auth/wrong-password') {
+            alert('password Incorrecta.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+        });
+    });
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        window.location.href = "/admin";
+      } else {
+        console.log('not logged in');
+      }
+    });
+  </script>
+
+</body>
+</html>

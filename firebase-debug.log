@@ -1,0 +1,46 @@
+[debug] [2018-09-04T16:07:28.369Z] ----------------------------------------------------------------------
+[debug] [2018-09-04T16:07:28.373Z] Command:       /usr/bin/node /usr/bin/firebase serve --only functions,hosting
+[debug] [2018-09-04T16:07:28.374Z] CLI Version:   4.0.1
+[debug] [2018-09-04T16:07:28.374Z] Platform:      linux
+[debug] [2018-09-04T16:07:28.374Z] Node Version:  v8.11.3
+[debug] [2018-09-04T16:07:28.374Z] Time:          Tue Sep 04 2018 18:07:28 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:28.374Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-04T16:07:28.389Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-04T16:07:28.389Z] > authorizing via signed-in user
+[debug] [2018-09-04T16:07:28.393Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wild-and-free-foundation  
+  
+ Tue Sep 04 2018 18:07:28 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:29.917Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-04T16:07:29.919Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wild-and-free-foundation/tokens  
+  
+ Tue Sep 04 2018 18:07:29 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:31.220Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-04T16:07:31.223Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/wild-and-free-foundation  
+  
+ Tue Sep 04 2018 18:07:31 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:32.747Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/machiza/Documents/programing.../NodeProjects/wff'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-09-04T16:07:33.745Z] Fetching environment
+[debug] [2018-09-04T16:07:33.750Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/753693107985:getServerAppConfig  
+  
+ Tue Sep 04 2018 18:07:33 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:33.752Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/753693107985/clients/_:getWebAppConfig  
+  
+ Tue Sep 04 2018 18:07:33 GMT+0200 (CAT)
+[debug] [2018-09-04T16:07:35.186Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-04T16:07:35.188Z] Starting @google-cloud/functions-emulator
+[debug] [2018-09-04T16:07:35.259Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-09-04T16:07:37.840Z] Parsing function triggers
+[info] ✔  functions: app: http://localhost:5001/wild-and-free-foundation/us-central1/app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /admin to local function app
+[info] [hosting] Rewriting /campeonato/calendario to local function app
+[info] [hosting] Rewriting /campeonato/classificacao to local function app

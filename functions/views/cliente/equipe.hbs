@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{equipe.nome}}</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../css/font.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css" rel="stylesheet">
+    <link href="../css/cliente.css" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBL1Z0xIrNTaojvv4Xc2ZvhpuE-pk6JXWM",
+            authDomain: "wild-and-free-foundation.firebaseapp.com",
+            databaseURL: "https://wild-and-free-foundation.firebaseio.com",
+            projectId: "wild-and-free-foundation",
+            storageBucket: "wild-and-free-foundation.appspot.com",
+            messagingSenderId: "753693107985"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+
+  <!-- Second navbar for sign in -->
+  <nav class="navbar navbar-default" style="background-color:#6fbec5;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a style="color: #ffffff; " class="navbar-brand" href="/"><img alt="Brand" src="../images/rhino1.png" style="width: 120px; margin-top: -8px;"></a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-2">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/" style="color: #ffffff">Home</a></li>
+          <li><a href="/campeonato" style="color: #ffffff">Campeonato</a></li>
+          <li><a href="#" style="color: #ffffff">Ajuda</a></li>
+          <li>
+            <a style="color: #ffffff" class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Login</a>
+          </li>
+        </ul>
+        <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2" style="background-color:#6fbec5;">
+          <div class="navbar-form navbar-right form-inline" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" placeholder="Password" required />
+            </div>
+            <button id="btnLogin" class="btn btn-success">Login</button>
+          </div>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+
+  <div class="container principal">
+
+    <div id="header-container">
+      <div id="header">
+        <span class="logo"><img src="../images/shield_gray_small.jpg" alt="John said" style="width: 40px;"> {{equipe.nome}}</span><br /><br />
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading" style="text-align: center; color: #ffffff; background-color: #5cb85c;text-shadow: none;">INFORMAÇÃO</div>
+      <div class="row">
+        <div class="col-md-6 nopadding" style="margin: 0;">
+          <!-- List group -->
+          <ul class="list-group">
+            <li class="list-group-item">Nome Curto <span style="float: right">{{equipe.nome}}</span></li>
+            <li class="list-group-item">Sigla <span style="float: right">{{equipe.sigla}}</span></li>
+            <li class="list-group-item">Zona <span style="float: right">----</span></li>
+            <li class="list-group-item">Delegado <span style="float: right">{{equipe.delegado.nome}}</li>
+          </ul>
+        </div>
+        <div class="col-md-6 nopadding" style="margin: 0;">
+          <!-- List group -->
+          <ul class="list-group">
+            <li class="list-group-item">Nome Completo <span style="float: right">{{equipe.completo}}</span></li>
+            <li class="list-group-item">Fundação <span style="float: right">----</span></li>
+            <li class="list-group-item">Campo <span style="float: right">----</span></li>
+            <li class="list-group-item">Treinador <span style="float: right">----</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading" style="text-align: center; color: #ffffff; background-color: #5cb85c;text-shadow: none;">
+        {{equipe.nome}} Plantel
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped m-b-none" >
+          <thead>
+            <tr>
+              <th width="55%"></th>
+              <th width="5%">Reforço</th>
+              <th width="5%" style="text-align: center">Numero</th>
+              <th width="5%" style="text-align: center">Posicao</th>
+              <th width="5%" style="text-align: center; color: yellow"><i class="fa fa-square"></i></th>
+              <th width="5%" style="text-align: center; color: red"><i class="fa fa-square"></i></th>
+              <th width="5%" style="text-align: center"><i class="fa fa-dribbble"></i></th>
+              <th width="5%" style="text-align: center"><i class="fa fa-user-md"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each equipe.jogadores}}
+              <tr>
+                <td>
+                  <a data-toggle="modal" data-target="#myModal" href="#"><img click="modal" src="{{foto}}" alt="John said" class="img-circle" style="width: 40px; height: 40px;"> {{ nome }}</a>
+                </td>
+                {{#if reforco }}
+                  <td style="text-align: center; color: red;"><i class="fa fa-check"></i></td>
+                {{else}}
+                  <td style="text-align: center"></td>
+                {{/if}}
+                <td style="text-align: center">{{numero}}</td>
+                <td style="text-align: center">{{posicao}}</td>
+                <td style="text-align: center">0</td>
+                <td style="text-align: center">0</td>
+                <td style="text-align: center">0</td>
+                <td style="text-align: center"><i class="fa fa-circle"></i></td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small" style="background-color: #6fbec5">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="#"> Armando Machiza & Felizardo Cossa</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script src="../js/jquery.min.js"></script>
+<script>
+  function modal() {
+    console.log('sim!');
+  }
+</script>
+    
+</body>
+</html>
